@@ -1,6 +1,4 @@
 // jsonproc.cpp
-// jsonproc converts JSON data to an output file based on an Inja template. 
-// https://github.com/pantor/inja
 
 #include "jsonproc.h"
 

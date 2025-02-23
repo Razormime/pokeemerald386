@@ -1,0 +1,128 @@
+{
+  "id": "MAP_JAGGED_PASS2",
+  "name": "JaggedPass2",
+  "layout": "LAYOUT_JAGGED_PASS2",
+  "music": "MUS_PETALBURG_WOODS",
+  "region_map_section": "MAPSEC_JAGGED_PASS",
+  "requires_flash": false,
+  "weather": "WEATHER_SUNNY",
+  "map_type": "MAP_TYPE_ROUTE",
+  "allow_cycling": true,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": [
+    {
+      "map": "MAP_JAGGED_PASS",
+      "offset": 12,
+      "direction": "right"
+    }
+  ],
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_MOLTRES",
+      "x": 14,
+      "y": 5,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JaggedPass2_EventScript_Moltres",
+      "flag": "FLAG_HIDE_MOLTRES"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 12,
+      "y": 34,
+      "elevation": 3,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "JaggedPass2_EventScript_SunStone",
+      "flag": "FLAG_ITEM_JAGGED_PASS2_SUN_STONE"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 27,
+      "y": 30,
+      "elevation": 3,
+      "dest_map": "MAP_FIERY_PATH2",
+      "dest_warp_id": "2"
+    },
+    {
+      "x": 16,
+      "y": 37,
+      "elevation": 3,
+      "dest_map": "MAP_FIERY_PATH2",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+    {
+      "type": "weather",
+      "x": 10,
+      "y": 35,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 12,
+      "y": 29,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_VOLCANIC_ASH"
+    },
+    {
+      "type": "weather",
+      "x": 20,
+      "y": 34,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 21,
+      "y": 34,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 22,
+      "y": 34,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    },
+    {
+      "type": "weather",
+      "x": 23,
+      "y": 34,
+      "elevation": 3,
+      "weather": "COORD_EVENT_WEATHER_SUNNY"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 10,
+      "y": 9,
+      "elevation": 3,
+      "item": "ITEM_TM35",
+      "flag": "FLAG_ITEM_FLAMETHROWER"
+    },
+    {
+      "type": "hidden_item",
+      "x": 18,
+      "y": 17,
+      "elevation": 3,
+      "item": "ITEM_FIRE_STONE",
+      "flag": "FLAG_ITEM_JAGGED_PASS2_FIRE_STONE"
+    }
+  ]
+}

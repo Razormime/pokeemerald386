@@ -60,7 +60,6 @@
 
 	.section script_data, "aw", %progbits
 
-	.set ALLOCATE_SCRIPT_CMD_TABLE, 1
 	.include "data/script_cmd_table.inc"
 
 gSpecialVars::
@@ -564,8 +563,8 @@ gStdScripts_End::
 	.include "data/maps/Route110_TrickHousePuzzle6/scripts.inc"
 	.include "data/maps/Route110_TrickHousePuzzle7/scripts.inc"
 	.include "data/maps/Route110_TrickHousePuzzle8/scripts.inc"
-	.include "data/maps/Route110_SeasideCyclingRoadSouthEntrance/scripts.inc"
 	.include "data/maps/Route110_SeasideCyclingRoadNorthEntrance/scripts.inc"
+	.include "data/maps/Route110_SeasideCyclingRoadSouthEntrance/scripts.inc"
 	.include "data/maps/Route113_GlassWorkshop/scripts.inc"
 	.include "data/maps/Route123_BerryMastersHouse/scripts.inc"
 	.include "data/maps/Route119_WeatherInstitute_1F/scripts.inc"
@@ -952,6 +951,14 @@ gText_Sudowoodo_Attacked::
 gText_LegendaryFlewAway::
 	.string "The {STR_VAR_1} flew away!$"
 
+gText_LegendaryHidUnderwater::
+	.string "The {STR_VAR_1} dove into\n"
+	.string "the deep water!$"
+
+gText_LegendaryTeleportedAway::
+	.string "{STR_VAR_1} teleported\n"
+	.string "into the darkness!$"
+
 	.include "data/text/pc_transfer.inc"
 	.include "data/text/questionnaire.inc"
 	.include "data/text/abnormal_weather.inc"
@@ -999,6 +1006,24 @@ Common_EventScript_LegendaryFlewAway::
 	fadescreenswapbuffers FADE_FROM_BLACK
 	bufferspeciesname STR_VAR_1, VAR_0x8004
 	msgbox gText_LegendaryFlewAway, MSGBOX_DEFAULT
+	release
+	end
+
+Common_EventScript_LegendaryHidUnderwater::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryHidUnderwater, MSGBOX_DEFAULT
+	release
+	end
+
+Common_EventScript_LegendaryTeleportedAway::
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox gText_LegendaryTeleportedAway, MSGBOX_DEFAULT
 	release
 	end
 
@@ -1057,3 +1082,24 @@ Common_EventScript_LegendaryFlewAway::
 	.include "data/text/frontier_brain.inc"
 	.include "data/text/save.inc"
 	.include "data/text/birch_speech.inc"
+
+	.include "data/maps/BattleFrontier_BnB/scripts.inc"
+
+	.include "data/maps/MossdeepCity_SpaceCenter_B1F/scripts.inc"
+
+
+	.include "data/maps/GraniteCave_B2F2/scripts.inc"
+
+	.include "data/maps/GraniteCave_B3F/scripts.inc"
+
+	.include "data/maps/GraniteCave_B1F2/scripts.inc"
+
+	.include "data/maps/JaggedPass2/scripts.inc"
+
+	.include "data/maps/FieryPath2/scripts.inc"
+
+	.include "data/maps/AlteringCave_B1F/scripts.inc"
+
+	.include "data/maps/AlteringCave_B2F/scripts.inc"
+
+	.include "data/maps/AlteringCave_B3F/scripts.inc"

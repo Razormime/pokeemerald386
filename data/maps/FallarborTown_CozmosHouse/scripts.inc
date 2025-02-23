@@ -16,8 +16,51 @@ FallarborTown_CozmosHouse_EventScript_PlayerHasMeteorite::
 	call_if_set FLAG_TEMP_2, FallarborTown_CozmosHouse_EventScript_AskForMeteorite
 	goto_if_eq VAR_RESULT, NO, FallarborTown_CozmosHouse_EventScript_DeclineGiveMeteorite
 	msgbox FallarborTown_CozmosHouse_Text_PleaseUseThisTM, MSGBOX_DEFAULT
-	giveitem ITEM_TM_RETURN
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	setvar VAR_TEMP_1, SPECIES_CYNDAQUIL
+	givemon SPECIES_CYNDAQUIL, 10, ITEM_NONE
+	goto_if_eq VAR_RESULT, 0, ReceiveGiftCyndaquilParty
+	goto_if_eq VAR_RESULT, 1, ReceiveGiftCyndaquilPC
+	msgbox NoRoomForCyndaquilText, MSGBOX_DEFAULT
+//	giveitem ITEM_TM27
+//	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+	release
+	end
+
+ReceiveGiftCyndaquilParty::
+	call GotCyndaquil_Fanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, FallarborTown_CozmosHouse_EventScript_PlayerGaveMeteorite
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
+	goto FallarborTown_CozmosHouse_EventScript_PlayerGaveMeteorite
+	end
+
+ReceiveGiftCyndaquilPC::
+	call GotCyndaquil_Fanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SCRIPT_SendCyndaquilToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SCRIPT_SendCyndaquilToPC
+	end
+
+SCRIPT_SendCyndaquilToPC::
+	call Common_EventScript_TransferredToPC
+	goto FallarborTown_CozmosHouse_EventScript_PlayerGaveMeteorite
+	end
+
+GotCyndaquil_Fanfare::
+	setflag FLAG_GOT_CYNDAQUIL
+	playfanfare MUS_OBTAIN_ITEM
+	message PlayerReceivedSpecialCyndaquilText
+	waitmessage
+	waitfanfare
+	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+	return
+
+FallarborTown_CozmosHouse_EventScript_PlayerGaveMeteorite::
+	lock
+	faceplayer
+	waitse
 	setvar VAR_0x8004, ITEM_METEORITE
 	call Common_EventScript_PlayerHandedOverTheItem
 	setflag FLAG_RECEIVED_TM_RETURN
@@ -79,14 +122,21 @@ FallarborTown_CozmosHouse_Text_IsThatMeteoriteMayIHaveIt:
 	.string "Could it be?\p"
 	.string "Is it the METEORITE that TEAM MAGMA\n"
 	.string "took from METEOR FALLS?\p"
-	.string "Please, may I have it?\p"
-	.string "I'm not asking for it for free.\n"
-	.string "How about in exchange for this TM?$"
+	.string "Please, may I have it?\n"
+	.string "I'm not asking for it for free.\p"
+	.string "How about in exchange for this rare\n"
+	.string "JOHTO POKéMON?$"
+//	.string "How about in exchange for this TM?$"
+//
+//FallarborTown_CozmosHouse_Text_PleaseUseThisTM:
+//	.string "PROF. COZMO: This TM, it represents\n"
+//	.string "my feeling of gratitude.\l"
+//	.string "Please use it!$"
 
 FallarborTown_CozmosHouse_Text_PleaseUseThisTM:
-	.string "PROF. COZMO: This TM, it represents\n"
-	.string "my feeling of gratitude.\l"
-	.string "Please use it!$"
+	.string "PROF. COZMO: This POKéMON, it truly\n"
+	.string "represents my feeling of gratitude.\l"
+	.string "Please take care of it!$"
 
 FallarborTown_CozmosHouse_Text_ReallyGoingToHelpMyResearch:
 	.string "PROF. COZMO: Oh, I can't believe it.\n"
@@ -100,8 +150,17 @@ FallarborTown_CozmosHouse_Text_CrushedWithDisappointment:
 FallarborTown_CozmosHouse_Text_MayIHaveMeteorite:
 	.string "PROF. COZMO: Please, may I have that\n"
 	.string "METEORITE?\p"
-	.string "I'm not asking for it for free.\n"
-	.string "How about in exchange for this TM?$"
+	.string "I'm not asking for it for free.\p"
+	.string "How about in exchange for this rare\n"
+	.string "JOHTO POKéMON?$"
+//	.string "How about in exchange for this TM?$"
+
+NoRoomForCyndaquilText:
+	.string "Oh! It seems that you need to make\n"
+	.string "room for this POKéMON…$"
+
+PlayerReceivedSpecialCyndaquilText:
+	.string "{PLAYER} received CYNDAQUIL!$"
 
 FallarborTown_CozmosHouse_Text_CozmoWentToMeteorFalls:
 	.string "PROF. COZMO went off to METEOR FALLS\n"
@@ -115,4 +174,3 @@ FallarborTown_CozmosHouse_Text_FeelSorryForCozmo:
 FallarborTown_CozmosHouse_Text_CozmoIsSoHappy:
 	.string "Look at PROF. COZMO…\n"
 	.string "He's so happy! I think it's cute.$"
-

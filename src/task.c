@@ -1,7 +1,7 @@
 #include "global.h"
 #include "task.h"
 
-COMMON_DATA struct Task gTasks[NUM_TASKS] = {0};
+struct Task gTasks[NUM_TASKS];
 
 static void InsertTask(u8 newTaskId);
 static u8 FindFirstActiveTask(void);

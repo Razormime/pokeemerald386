@@ -64,6 +64,7 @@
 #define GIFT_RIBBONS_COUNT 11
 #define SAVED_TRENDS_COUNT 5
 #define PYRAMID_BAG_ITEMS_COUNT 10
+#define ROAMER_COUNT 5 // Number of maximum concurrent active roamers (roamer_expansion)
 
 // Number of facilities for Ranking Hall.
 // 7 facilities for single mode + tower double mode + tower multi mode.
@@ -114,7 +115,7 @@
 #define FEMALE 1
 #define GENDER_COUNT 2
 
-#define NUM_BARD_SONG_WORDS    6
+#define BARD_SONG_LENGTH       6
 #define NUM_STORYTELLER_TALES  4
 #define NUM_TRADER_ITEMS       4
 #define GIDDY_MAX_TALES       10

@@ -1,9 +1,27 @@
 .set LOCALID_SUDOWOODO, 14
 
 BattleFrontier_OutsideEast_MapScripts::
-	map_script MAP_SCRIPT_ON_RESUME, BattleFrontier_OutsideEast_OnResume
+//	map_script MAP_SCRIPT_ON_RESUME, BattleFrontier_OutsideEast_OnResume
 	map_script MAP_SCRIPT_ON_TRANSITION, BattleFrontier_OutsideEast_OnTransition
+	map_script MAP_SCRIPT_ON_RESUME, BattleFrontier_OutsideEast_OnResume
 	.byte 0
+
+BattleFrontier_OutsideEast_OnTransition:
+	setvar VAR_BRAVO_TRAINER_BATTLE_TOWER_ON, 0
+	setflag FLAG_HIDE_BATTLE_TOWER_REPORTER
+	call_if_set FLAG_CAUGHT_SUDOWOODO, BattleFrontier_OutsideEast_EventScript_HideSudowoodo
+	call_if_unset FLAG_CAUGHT_SUDOWOODO, BattleFrontier_OutsideEast_EventScript_ShowSudowoodo
+	end
+
+BattleFrontier_OutsideEast_EventScript_HideSudowoodo::
+	setflag FLAG_HIDE_SUDOWOODO
+	return
+
+BattleFrontier_OutsideEast_EventScript_ShowSudowoodo::
+	goto_if_set FLAG_DEFEATED_SUDOWOODO, Common_EventScript_NopReturn
+	clearflag FLAG_HIDE_SUDOWOODO
+//	clearflag FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO
+	return
 
 BattleFrontier_OutsideEast_OnResume:
 	call_if_set FLAG_SYS_CTRL_OBJ_DELETE, BattleFrontier_OutsideEast_EventScript_TryRemoveSudowoodo
@@ -12,18 +30,17 @@ BattleFrontier_OutsideEast_OnResume:
 BattleFrontier_OutsideEast_EventScript_TryRemoveSudowoodo::
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_ne VAR_RESULT, B_OUTCOME_CAUGHT, Common_EventScript_NopReturn
-	removeobject VAR_LAST_TALKED
+//	removeobject VAR_LAST_TALKED
+	removeobject LOCALID_SUDOWOODO
 	return
 
-BattleFrontier_OutsideEast_OnTransition:
-	setvar VAR_BRAVO_TRAINER_BATTLE_TOWER_ON, 0
-	setflag FLAG_HIDE_BATTLE_TOWER_REPORTER
-	call_if_unset FLAG_DEFEATED_SUDOWOODO, BattleFrontier_OutsideEast_EventScript_ShowSudowoodo
+BattleFrontier_OutsideEast_EventScript_BnBSign::
+	msgbox BattleFrontier_OutsideEast_Text_BnBSign, MSGBOX_SIGN
 	end
 
-BattleFrontier_OutsideEast_EventScript_ShowSudowoodo::
-	clearflag FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO
-	return
+BattleFrontier_OutsideEast_EventScript_BnBLady::
+	msgbox BattleFrontier_OutsideEast_EventScript_BnBLady_Text, MSGBOX_NPC
+	end
 
 BattleFrontier_OutsideEast_EventScript_BattleTowerSign::
 	msgbox BattleFrontier_OutsideEast_Text_BattleTowerSign, MSGBOX_SIGN
@@ -135,15 +152,35 @@ BattleFrontier_OutsideEast_EventScript_WaterSudowoodo::
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo
-	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo
-	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo
-	setflag FLAG_DEFEATED_SUDOWOODO
+	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, BattleFrontier_OutsideEast_EventScript_RanFromSudowoodo
+	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, BattleFrontier_OutsideEast_EventScript_RanFromSudowoodo
+	setflag FLAG_CAUGHT_SUDOWOODO
+//	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo
+//	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo
+//	setflag FLAG_DEFEATED_SUDOWOODO
 	release
 	end
 
 BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo::
 	setflag FLAG_DEFEATED_SUDOWOODO
-	goto Common_EventScript_RemoveStaticPokemon
+//	setvar VAR_0x8004, SPECIES_SUDOWOOO
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+//	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox SudoWoodoHidingText, MSGBOX_DEFAULT
+	release
+//	goto Common_EventScript_RemoveStaticPokemon
+	end
+
+BattleFrontier_OutsideEast_EventScript_RanFromSudowoodo::
+//	setvar VAR_0x8004, SPECIES_SUDOWOOO
+	fadescreenswapbuffers FADE_TO_BLACK
+	removeobject VAR_LAST_TALKED
+	fadescreenswapbuffers FADE_FROM_BLACK
+//	bufferspeciesname STR_VAR_1, VAR_0x8004
+	msgbox SudoWoodoHidingText, MSGBOX_DEFAULT
+	release
 	end
 
 BattleFrontier_OutsideEast_Movement_SudowoodoShake:
@@ -220,6 +257,7 @@ BattleFrontier_OutsideEast_EventScript_OldWoman::
 	lock
 	faceplayer
 	goto_if_set FLAG_DEFEATED_SUDOWOODO, BattleFrontier_OutsideEast_EventScript_OldWomanSudowoodoGone
+	goto_if_set FLAG_CAUGHT_SUDOWOODO, BattleFrontier_OutsideEast_EventScript_OldWomanSudowoodoGone
 	msgbox BattleFrontier_OutsideEast_Text_OddTreeHereSeemsToWiggle, MSGBOX_DEFAULT
 	release
 	end
@@ -232,6 +270,20 @@ BattleFrontier_OutsideEast_EventScript_OldWomanSudowoodoGone::
 BattleFrontier_OutsideEast_EventScript_Camper::
 	msgbox BattleFrontier_OutsideEast_Text_StickyMonWithLongTail, MSGBOX_NPC
 	end
+
+SudoWoodoHidingText:
+	.string "SUDOWOODO scurried into the trees…$"
+
+BattleFrontier_OutsideEast_Text_BnBSign:
+	.string "BATTLE FRONTIER BED & BREAKFAST\n"
+	.string "Cozy lodging for the weary traveler!$"
+
+BattleFrontier_OutsideEast_EventScript_BnBLady_Text:
+	.string "Oh hello, deary!\p"
+	.string "I run the B&B here, but it's only\n"
+	.string "one room, and it's currently reserved.\p"
+	.string "…maybe I should have an\n"
+	.string "expansion built…$"
 
 BattleFrontier_OutsideEast_Text_BattleTowerSign:
 	.string "This is the BATTLE TOWER!\n"
@@ -421,14 +473,14 @@ BattleFrontier_OutsideEast_Text_FrontierNotExclusivelyForToughTrainers:
 BattleFrontier_OutsideEast_Text_OddTreeHereSeemsToWiggle:
 	.string "Excuse me, young one.\n"
 	.string "Have you good eyesight?\p"
-	.string "There is an odd tree past here, and to\n"
-	.string "my tired eyes it seems to wiggle.$"
+	.string "There was an odd tree around here, and\n"
+	.string "to my tired eyes it seemed to wiggle.$"
 
 BattleFrontier_OutsideEast_Text_OnceAnOddTreePastHere:
 	.string "Excuse me, young one.\n"
 	.string "Have you a good memory?\p"
 	.string "I have this feeling there once was\n"
-	.string "an odd tree past here.$"
+	.string "an odd wiggling tree around here.$"
 
 BattleFrontier_OutsideEast_Text_StickyMonWithLongTail:
 	.string "I…\n"

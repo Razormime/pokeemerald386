@@ -150,9 +150,7 @@ static void SpriteCB_Sparkle_SpiralUpward(struct Sprite *sprite)
         sprite->oam.matrixNum = matrixNum;
     }
     else
-    {
         DestroySprite(sprite);
-    }
 }
 
 static void CreateSparkle_SpiralUpward(u8 trigIdx)
@@ -180,9 +178,7 @@ static void SpriteCB_Sparkle_ArcDown(struct Sprite *sprite)
         sprite->sTimer++;
     }
     else
-    {
         DestroySprite(sprite);
-    }
 }
 
 static void CreateSparkle_ArcDown(u8 trigIdx)
@@ -210,9 +206,7 @@ static void SpriteCB_Sparkle_CircleInward(struct Sprite *sprite)
         sprite->sTrigIdx += 4;
     }
     else
-    {
         DestroySprite(sprite);
-    }
 }
 
 static void CreateSparkle_CircleInward(u8 trigIdx, u8 speed)
@@ -244,9 +238,7 @@ static void SpriteCB_Sparkle_Spray(struct Sprite *sprite)
         sprite->sTrigIdx++;
         matrixNum = 31 - (sprite->sTrigIdx * 12 / 128);
         if (sprite->sTrigIdx > 64)
-        {
             sprite->subpriority = 1;
-        }
         else
         {
             sprite->invisible = FALSE;
@@ -260,9 +252,7 @@ static void SpriteCB_Sparkle_Spray(struct Sprite *sprite)
         sprite->sTimer++;
     }
     else
-    {
         DestroySprite(sprite);
-    }
 }
 
 static void CreateSparkle_Spray(u8 id)
@@ -358,9 +348,7 @@ static void Task_Sparkles_ArcDown(u8 taskId)
         gTasks[taskId].tTimer++;
     }
     else
-    {
         gTasks[taskId].func = Task_Sparkles_ArcDown_End;
-    }
 }
 
 static void Task_Sparkles_ArcDown_End(u8 taskId)
@@ -400,9 +388,7 @@ static void Task_Sparkles_CircleInward(u8 taskId)
         gTasks[taskId].tTimer++;
     }
     else
-    {
         gTasks[taskId].func = Task_Sparkles_CircleInward_End;
-    }
 }
 
 static void Task_Sparkles_CircleInward_End(u8 taskId)
@@ -451,9 +437,7 @@ static void Task_Sparkles_SprayAndFlash(u8 taskId)
         gTasks[taskId].tTimer++;
     }
     else
-    {
         gTasks[taskId].func = Task_Sparkles_SprayAndFlash_End;
-    }
 }
 
 static void Task_Sparkles_SprayAndFlash_End(u8 taskId)
@@ -502,9 +486,7 @@ static void Task_Sparkles_SprayAndFlashTrade(u8 taskId)
         gTasks[taskId].tTimer++;
     }
     else
-    {
         gTasks[taskId].func = Task_Sparkles_SprayAndFlash_End;
-    }
 }
 
 #undef tTimer
@@ -578,13 +560,9 @@ static void Task_CycleEvolutionMonSprite_Init(u8 taskId)
 static void Task_CycleEvolutionMonSprite_TryEnd(u8 taskId)
 {
     if (gTasks[taskId].tEvoStopped)
-    {
         EndOnPreEvoMon(taskId);
-    }
     else if (gTasks[taskId].tScaleSpeed == 128)
-    {
         EndOnPostEvoMon(taskId);
-    }
     else
     {
         gTasks[taskId].tScaleSpeed += 2;
@@ -596,9 +574,7 @@ static void Task_CycleEvolutionMonSprite_TryEnd(u8 taskId)
 static void Task_CycleEvolutionMonSprite_UpdateSize(u8 taskId)
 {
     if (gTasks[taskId].tEvoStopped)
-    {
         gTasks[taskId].func = EndOnPreEvoMon;
-    }
     else
     {
         u16 oamMatrixArg;
@@ -607,9 +583,7 @@ static void Task_CycleEvolutionMonSprite_UpdateSize(u8 taskId)
         {
             // Set pre-evo sprite growth
             if (gTasks[taskId].tPreEvoScale < MON_MAX_SCALE - gTasks[taskId].tScaleSpeed)
-            {
                 gTasks[taskId].tPreEvoScale += gTasks[taskId].tScaleSpeed;
-            }
             else
             {
                 gTasks[taskId].tPreEvoScale = MON_MAX_SCALE;
@@ -618,9 +592,7 @@ static void Task_CycleEvolutionMonSprite_UpdateSize(u8 taskId)
 
             // Set post-evo sprite shrink
             if (gTasks[taskId].tPostEvoScale > MON_MIN_SCALE + gTasks[taskId].tScaleSpeed)
-            {
                 gTasks[taskId].tPostEvoScale  -= gTasks[taskId].tScaleSpeed;
-            }
             else
             {
                 gTasks[taskId].tPostEvoScale = MON_MIN_SCALE;
@@ -631,9 +603,7 @@ static void Task_CycleEvolutionMonSprite_UpdateSize(u8 taskId)
         {
             // Set post-evo sprite growth
             if (gTasks[taskId].tPostEvoScale < MON_MAX_SCALE - gTasks[taskId].tScaleSpeed)
-            {
                 gTasks[taskId].tPostEvoScale += gTasks[taskId].tScaleSpeed;
-            }
             else
             {
                 gTasks[taskId].tPostEvoScale = MON_MAX_SCALE;
@@ -642,9 +612,7 @@ static void Task_CycleEvolutionMonSprite_UpdateSize(u8 taskId)
 
             // Set pre-evo sprite shrink
             if (gTasks[taskId].tPreEvoScale > MON_MIN_SCALE + gTasks[taskId].tScaleSpeed)
-            {
                 gTasks[taskId].tPreEvoScale  -= gTasks[taskId].tScaleSpeed;
-            }
             else
             {
                 gTasks[taskId].tPreEvoScale = MON_MIN_SCALE;

@@ -18,6 +18,13 @@ SootopolisCity_House1_EventScript_ReceivedBrickBreak::
 	release
 	end
 
+SootopolisCity_House1_EventScript_Shellder_Diver::
+	lock
+	faceplayer
+	msgbox SootopolisCity_House1_Text_ShellderDiving, MSGBOX_DEFAULT
+	release
+	end
+
 SootopolisCity_House1_EventScript_Kecleon::
 	lock
 	faceplayer
@@ -40,4 +47,12 @@ SootopolisCity_House1_Text_ExplainBrickBreak:
 
 SootopolisCity_House1_Text_Kecleon:
 	.string "KECLEON: Puu puhyaah.$"
+
+SootopolisCity_House1_Text_ShellderDiving:
+	.string "I've also been mastering my skills\n"
+	.string "in SOOTOPOLIS, but I'm a diver.\p"
+	.string "While working on breaking my depth\n"
+	.string "records I often run into POKéMON like\l"
+	.string "CLAMPERL and SHELLDER hiding out\l"
+	.string "amongst the seaweed.$"
 

@@ -141,25 +141,25 @@
 
 	.macro if_points_less_than num:req, destination:req
 	.byte 0x16
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 
 	.macro if_points_more_than num:req, destination:req
 	.byte 0x17
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 
 	.macro if_points_eq num:req, destination:req
 	.byte 0x18
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 
 	.macro if_points_not_eq num:req, destination:req
 	.byte 0x19
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 
@@ -171,25 +171,25 @@
 
 	.macro if_preliminary_points_less_than num:req, destination:req
 	.byte 0x1B
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 
 	.macro if_preliminary_points_more_than num:req, destination:req
 	.byte 0x1C
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 
 	.macro if_preliminary_points_eq num:req, destination:req
 	.byte 0x1D
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 
 	.macro if_preliminary_points_not_eq num:req, destination:req
 	.byte 0x1E
-	.2byte \num
+	.byte \num
 	.4byte \destination
 	.endm
 

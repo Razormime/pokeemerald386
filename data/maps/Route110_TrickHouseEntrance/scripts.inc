@@ -420,10 +420,12 @@ Route110_TrickHouseEntrance_EventScript_ChooseTent::
 
 Route110_TrickHouseEntrance_EventScript_GiveRedTent::
 	givedecoration DECOR_RED_TENT
+	setflag CHOSE_RED_TENT
 	return
 
 Route110_TrickHouseEntrance_EventScript_GiveBlueTent::
 	givedecoration DECOR_BLUE_TENT
+	setflag CHOSE_BLUE_TENT
 	return
 
 Route110_TrickHouseEntrance_EventScript_ReceivedTent::

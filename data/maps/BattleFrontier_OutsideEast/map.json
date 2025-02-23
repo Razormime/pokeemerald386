@@ -191,7 +191,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SUDOWOODO",
-      "x": 54,
+      "x": 55,
       "y": 62,
       "elevation": 3,
       "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
@@ -200,7 +200,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BattleFrontier_OutsideEast_EventScript_Sudowoodo",
-      "flag": "FLAG_HIDE_BATTLE_FRONTIER_SUDOWOODO"
+      "flag": "FLAG_HIDE_SUDOWOODO"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
@@ -357,6 +357,19 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "BattleFrontier_OutsideEast_EventScript_Camper",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
+      "x": 25,
+      "y": 56,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT_AND_RIGHT",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BattleFrontier_OutsideEast_EventScript_BnBLady",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -439,9 +452,9 @@
     },
     {
       "x": 21,
-      "y": 45,
+      "y": 57,
       "elevation": 0,
-      "dest_map": "MAP_BATTLE_FRONTIER_LOUNGE9",
+      "dest_map": "MAP_BATTLE_FRONTIER_BN_B",
       "dest_warp_id": "0"
     },
     {
@@ -459,7 +472,9 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+
+  ],
   "bg_events": [
     {
       "type": "sign",
@@ -524,6 +539,38 @@
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Common_EventScript_ShowPokemonCenterSign"
+    },
+    {
+      "type": "sign",
+      "x": 19,
+      "y": 58,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "BattleFrontier_OutsideEast_EventScript_BnBSign"
+    },
+    {
+      "type": "hidden_item",
+      "x": 23,
+      "y": 57,
+      "elevation": 0,
+      "item": "ITEM_SALAC_BERRY",
+      "flag": "FLAG_HIDDEN_SALAC_BERRY"
+    },
+    {
+      "type": "hidden_item",
+      "x": 26,
+      "y": 57,
+      "elevation": 0,
+      "item": "ITEM_GANLON_BERRY",
+      "flag": "FLAG_HIDDEN_GANLON_BERRY"
+    },
+    {
+      "type": "hidden_item",
+      "x": 24,
+      "y": 56,
+      "elevation": 0,
+      "item": "ITEM_APICOT_BERRY",
+      "flag": "FLAG_HIDDEN_APICOT_BERRY"
     }
   ]
 }

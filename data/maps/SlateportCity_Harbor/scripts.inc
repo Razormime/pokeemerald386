@@ -333,51 +333,97 @@ SlateportCity_Harbor_EventScript_FerryFinished::
 	end
 
 SlateportCity_Harbor_EventScript_AskToTradeScanner::
-	message SlateportCity_Harbor_Text_WouldYouTradeScanner
+	msgbox SlateportCity_Harbor_Text_WouldYouTradeScannerForTotodile, MSGBOX_YESNO
+	compare VAR_RESULT, NO
+	goto_if_eq SlateportCity_Harbor_EventScript_DeclineTrade
 	waitmessage
-	goto SlateportCity_Harbor_EventScript_ChooseScannerTrade
+	goto SlateportCity_Harbor_EventScript_ChooseScannerTradeForTotodile
+	end
+//
+//SlateportCity_Harbor_EventScript_ChooseScannerTrade::
+//	multichoice 0, 0, MULTI_STERN_DEEPSEA, FALSE
+//	switch VAR_RESULT
+//	case 0, SlateportCity_Harbor_EventScript_DeepSeaTooth
+//	case 1, SlateportCity_Harbor_EventScript_DeepSeaScale
+//	case 2, SlateportCity_Harbor_EventScript_DeclineTrade
+//	case MULTI_B_PRESSED, SlateportCity_Harbor_EventScript_DeclineTrade
+//	end
+
+SlateportCity_Harbor_EventScript_ChooseScannerTradeForTotodile::
+	msgbox SlateportCity_Harbor_Text_ThatsGreat, MSGBOX_DEFAULT
+	waitmessage
+	setvar VAR_TEMP_1, SPECIES_TOTODILE
+	givemon SPECIES_TOTODILE, 10, ITEM_BLACK_GLASSES
+	goto_if_eq VAR_RESULT, 0, ReceiveGiftTotodileParty
+	goto_if_eq VAR_RESULT, 1, ReceiveGiftTotodilePC
+	msgbox NoRoomForTotodileText, MSGBOX_DEFAULT
+	release
 	end
 
-SlateportCity_Harbor_EventScript_ChooseScannerTrade::
-	multichoice 0, 0, MULTI_STERN_DEEPSEA, FALSE
-	switch VAR_RESULT
-	case 0, SlateportCity_Harbor_EventScript_DeepSeaTooth
-	case 1, SlateportCity_Harbor_EventScript_DeepSeaScale
-	case 2, SlateportCity_Harbor_EventScript_DeclineTrade
-	case MULTI_B_PRESSED, SlateportCity_Harbor_EventScript_DeclineTrade
-	end
-
-SlateportCity_Harbor_EventScript_DeepSeaTooth::
-	msgbox SlateportCity_Harbor_Text_TradeForDeepSeaTooth, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_ChooseDifferentTrade
-	giveitem ITEM_DEEP_SEA_TOOTH
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	removeitem ITEM_SCANNER
-	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
-	setflag FLAG_EXCHANGED_SCANNER
+ReceiveGiftTotodileParty::
+	call GotTotodile_Fanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_TradedScanner
+	call Common_EventScript_GetGiftMonPartySlot
+	call Common_EventScript_NameReceivedPartyMon
 	goto SlateportCity_Harbor_EventScript_TradedScanner
 	end
 
-SlateportCity_Harbor_EventScript_DeepSeaScale::
-	msgbox SlateportCity_Harbor_Text_TradeForDeepSeaScale, MSGBOX_YESNO
-	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_ChooseDifferentTrade
-	giveitem ITEM_DEEP_SEA_SCALE
-	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	removeitem ITEM_SCANNER
-	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
-	setflag FLAG_EXCHANGED_SCANNER
+ReceiveGiftTotodilePC::
+	call GotTotodile_Fanfare
+	msgbox gText_NicknameThisPokemon, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, SCRIPT_SendTotodileToPC
+	call Common_EventScript_NameReceivedBoxMon
+	goto SCRIPT_SendTotodileToPC
+	end
+
+SCRIPT_SendTotodileToPC::
+	call Common_EventScript_TransferredToPC
 	goto SlateportCity_Harbor_EventScript_TradedScanner
 	end
+
+GotTotodile_Fanfare::
+	setflag FLAG_GOT_TOTODILE
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox PlayerReceivedSpecialTotodileText, MSGBOX_DEFAULT
+	waitmessage
+	waitfanfare
+	removeitem ITEM_SCANNER
+	setflag FLAG_EXCHANGED_SCANNER
+	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+	return
+//
+//SlateportCity_Harbor_EventScript_DeepSeaTooth::
+//	msgbox SlateportCity_Harbor_Text_TradeForDeepSeaTooth, MSGBOX_YESNO
+//	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_ChooseDifferentTrade
+//	giveitem ITEM_DEEP_SEA_TOOTH
+//	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+//	removeitem ITEM_SCANNER
+//	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
+//	setflag FLAG_EXCHANGED_SCANNER
+//	goto SlateportCity_Harbor_EventScript_TradedScanner
+//	end
+//
+//SlateportCity_Harbor_EventScript_DeepSeaScale::
+//	msgbox SlateportCity_Harbor_Text_TradeForDeepSeaScale, MSGBOX_YESNO
+//	goto_if_eq VAR_RESULT, NO, SlateportCity_Harbor_EventScript_ChooseDifferentTrade
+//	giveitem ITEM_DEEP_SEA_SCALE
+//	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
+//	removeitem ITEM_SCANNER
+//	msgbox SlateportCity_Harbor_Text_HandedScannerToStern, MSGBOX_DEFAULT
+//	setflag FLAG_EXCHANGED_SCANNER
+//	goto SlateportCity_Harbor_EventScript_TradedScanner
+//	end
+//
+//SlateportCity_Harbor_EventScript_ChooseDifferentTrade::
+//	message SlateportCity_Harbor_Text_WhichOneDoYouWant
+//	waitmessage
+//	goto SlateportCity_Harbor_EventScript_ChooseScannerTrade
+//	end
 
 SlateportCity_Harbor_EventScript_DeclineTrade::
 	msgbox SlateportCity_Harbor_Text_IfYouWantToTradeLetMeKnow, MSGBOX_DEFAULT
 	release
-	end
-
-SlateportCity_Harbor_EventScript_ChooseDifferentTrade::
-	message SlateportCity_Harbor_Text_WhichOneDoYouWant
-	waitmessage
-	goto SlateportCity_Harbor_EventScript_ChooseScannerTrade
 	end
 
 SlateportCity_Harbor_EventScript_TradedScanner::
@@ -520,6 +566,16 @@ SlateportCity_Harbor_Text_WouldYouTradeScanner:
 	.string "Like, say, a DEEPSEATOOTH or\n"
 	.string "a DEEPSEASCALE that I have?$"
 
+SlateportCity_Harbor_Text_WouldYouTradeScannerForTotodile:
+	.string "CAPT. STERN: Oh?\n"
+	.string "{PLAYER}{KUN}, that item you have…\p"
+	.string "That's a SCANNER! That would sure\n"
+	.string "help us on our explorations.\p"
+	.string "{PLAYER}{KUN}, would you trade your\n"
+	.string "SCANNER for something?\p"
+	.string "Like, say, this TOTODILE from\n"
+	.string "JOHTO that I have?$"
+
 SlateportCity_Harbor_Text_IfYouWantToTradeLetMeKnow:
 	.string "CAPT. STERN: Are you certain?\n"
 	.string "It's useless to you, {PLAYER}{KUN}…\p"
@@ -534,8 +590,15 @@ SlateportCity_Harbor_Text_TradeForDeepSeaScale:
 	.string "CAPT. STERN: So you'll trade it for\n"
 	.string "my DEEPSEASCALE?$"
 
+SlateportCity_Harbor_Text_TradeForTotodile:
+	.string "CAPT. STERN: So you'll trade it for\n"
+	.string "this TOTODILE?$"
+
 SlateportCity_Harbor_Text_WhichOneDoYouWant:
 	.string "CAPT. STERN: Which one do you want?$"
+
+SlateportCity_Harbor_Text_ThatsGreat:
+	.string "CAPT. STERN: OK! Let's trade then!$"
 
 SlateportCity_Harbor_Text_HandedScannerToStern:
 	.string "{PLAYER} handed the SCANNER to\n"
@@ -544,3 +607,11 @@ SlateportCity_Harbor_Text_HandedScannerToStern:
 SlateportCity_Harbor_Text_ThisWillHelpResearch:
 	.string "CAPT. STERN: Thanks, {PLAYER}{KUN}!\n"
 	.string "This will help our research a lot!$"
+
+NoRoomForTotodileText:
+	.string "CAPT. STERN: Oh, you need to make\n"
+	.string "some room for this TOTODILE…$"
+
+PlayerReceivedSpecialTotodileText:
+	.string "{PLAYER} handed the SCANNER to\n"
+	.string "CAPT. STERN and received TOTODILE!$"

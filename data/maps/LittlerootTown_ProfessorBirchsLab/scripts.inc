@@ -168,7 +168,8 @@ LittlerootTown_ProfessorBirchsLab_Movement_PlayerEnterLabForPokedex:
 LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	lockall
 	delay 30
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational, MSGBOX_DEFAULT
+//	msgbox LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_RoamingBeasts1, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_BIRCH, LittlerootTown_ProfessorBirchsLab_Movement_BirchRetrievePokedexes
 	waitmovement 0
@@ -197,28 +198,61 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	waitmovement 0
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone, MSGBOX_DEFAULT
 	playfanfare MUS_OBTAIN_ITEM
-	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
+//	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational
+	message LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedRoamingBeasts
 	waitmessage
 	waitfanfare
-	setflag FLAG_SYS_NATIONAL_DEX
-	special EnableNationalPokedex
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
+//	clearflag FLAG_LANDMARK_SEALED_CHAMBER//TURN OFF WHEN TESTING IS DONE
+//	setflag FLAG_SYS_NATIONAL_DEX//TURN OFF WHEN TESTING IS DONE
+//	special EnableNationalPokedex//TURN OFF WHEN TESTING IS DONE
+//	special FillPokedex//TURN OFF WHEN TESTING IS DONE
+//	msgbox LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_RoamingBeastUpdate1, MSGBOX_DEFAULT
+	closemessage
+	showmonpic SPECIES_ENTEI, 10, 3
+	waitse
+	playmoncry SPECIES_ENTEI, CRY_MODE_NORMAL
+	delay 80
+	waitmoncry
+	setvar VAR_TEMP_1, SPECIES_ENTEI
+	special SetSeenMon
+	hidemonpic
+	showmonpic SPECIES_RAIKOU, 10, 3
+	waitse
+	playmoncry SPECIES_RAIKOU, CRY_MODE_NORMAL
+	delay 80
+	waitmoncry
+	setvar VAR_TEMP_1, SPECIES_RAIKOU
+	special SetSeenMon
+	hidemonpic
+	showmonpic SPECIES_SUICUNE, 10, 3
+	waitse
+	playmoncry SPECIES_SUICUNE, CRY_MODE_NORMAL
+	delay 80
+	waitmoncry
+	setvar VAR_TEMP_1, SPECIES_SUICUNE
+	special SetSeenMon
+	hidemonpic
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_RoamingBeastUpdate2, MSGBOX_DEFAULT
 	closemessage
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCH
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_RIVAL
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2
 	setvar VAR_SCOTT_BF_CALL_STEP_COUNTER, 0
 	setflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+//	setflag FLAG_READY_DEX_HELP//TURN OFF AFTER TESTING
 	releaseall
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_MayUpgradeComment::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool, MSGBOX_DEFAULT
+//	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_MayRoamingBeastsSoCool, MSGBOX_DEFAULT
 	closemessage
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_BrendanUpgradeComment::
-	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe, MSGBOX_DEFAULT
+//	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe, MSGBOX_DEFAULT
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_BrendanRoamingBeastsLucky, MSGBOX_DEFAULT
 	closemessage
 	return
 
@@ -298,7 +332,10 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Cyndaquil::
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseJohtoStarter
 	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
-	showmonpic SPECIES_CYNDAQUIL, 10, 3
+//	showmonpic SPECIES_CYNDAQUIL, 10, 3
+	showmonpic SPECIES_HITMONLEE, 10, 3
+	playmoncry SPECIES_HITMONLEE, CRY_MODE_NORMAL
+	waitmoncry
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeCyndaquil, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveCyndaquil
@@ -309,7 +346,10 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Totodile::
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseJohtoStarter
 	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
-	showmonpic SPECIES_TOTODILE, 10, 3
+//	showmonpic SPECIES_TOTODILE, 10, 3
+	showmonpic SPECIES_HITMONTOP, 10, 3
+	playmoncry SPECIES_HITMONTOP, CRY_MODE_NORMAL
+	waitmoncry
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTotodile, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveTotodile
@@ -320,7 +360,10 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Chikorita::
 	goto_if_ge VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 6, LittlerootTown_ProfessorBirchsLab_EventScript_AlreadyChoseJohtoStarter
 	applymovement LOCALID_BIRCH, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
-	showmonpic SPECIES_CHIKORITA, 10, 3
+//	showmonpic SPECIES_CHIKORITA, 10, 3
+	showmonpic SPECIES_HITMONCHAN, 10, 3
+	playmoncry SPECIES_HITMONCHAN, CRY_MODE_NORMAL
+	waitmoncry
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_YoullTakeChikorita, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_GiveChikorita
@@ -338,9 +381,12 @@ LittlerootTown_ProfessorBirchsLab_EventScript_TakeYourTime::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveCyndaquil::
-	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CYNDAQUIL
-	givemon SPECIES_CYNDAQUIL, 5
+//	bufferspeciesname STR_VAR_1, SPECIES_CYNDAQUIL
+//	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CYNDAQUIL
+//	givemon SPECIES_CYNDAQUIL, 5
+	bufferspeciesname STR_VAR_1, SPECIES_HITMONLEE
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_HITMONLEE
+	givemon SPECIES_HITMONLEE, 20
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendCyndaquilToParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendCyndaquilToPC
 	hidemonpic
@@ -379,9 +425,12 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedCyndaquil::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveTotodile::
-	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TOTODILE
-	givemon SPECIES_TOTODILE, 5
+//	bufferspeciesname STR_VAR_1, SPECIES_TOTODILE
+//	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_TOTODILE
+//	givemon SPECIES_TOTODILE, 5
+	bufferspeciesname STR_VAR_1, SPECIES_HITMONTOP
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_HITMONTOP
+	givemon SPECIES_HITMONTOP, 20
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendTotodileToParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendTotodileToPC
 	hidemonpic
@@ -420,9 +469,12 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivedTotodile::
 	end
 
 LittlerootTown_ProfessorBirchsLab_EventScript_GiveChikorita::
-	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHIKORITA
-	givemon SPECIES_CHIKORITA, 5
+//	bufferspeciesname STR_VAR_1, SPECIES_CHIKORITA
+//	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHIKORITA
+//	givemon SPECIES_CHIKORITA, 5
+	bufferspeciesname STR_VAR_1, SPECIES_HITMONCHAN
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_HITMONCHAN
+	givemon SPECIES_HITMONCHAN, 20
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PARTY, LittlerootTown_ProfessorBirchsLab_EventScript_SendChikoritaToParty
 	goto_if_eq VAR_RESULT, MON_GIVEN_TO_PC, LittlerootTown_ProfessorBirchsLab_EventScript_SendChikoritaToPC
 	hidemonpic
@@ -553,6 +605,8 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ReceivePokedex::
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
 	setflag FLAG_RECEIVED_POKEDEX_FROM_BIRCH
+	setflag FLAG_SYS_NATIONAL_DEX// moved from Birch upgrading national dex
+	special EnableNationalPokedex// moved from Birch upgrading national dex
 	setvar VAR_CABLE_CLUB_TUTORIAL_STATE, 1
 	return
 
@@ -644,6 +698,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_BrendanTakeBreakFromFieldwork::
 	return
 
 LittlerootTown_ProfessorBirchsLab_EventScript_PC::
+	goto_if_set FLAG_IS_CHAMPION, LittlerootTown_ProfessorBirchsLab_EventScript_PC2
 	msgbox LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch, MSGBOX_SIGN
 	end
 
@@ -662,6 +717,602 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
 	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
 	releaseall
 	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PC2::
+	lock
+	goto_if_set FLAG_GOT_DEX_HELP, LittlerootTown_ProfessorBirchsLab_EventScript_PC2_AlreadyDone
+	goto_if_unset FLAG_READY_DEX_HELP, LittlerootTown_ProfessorBirchsLab_EventScript_PC2_AlreadyDone
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch2, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, LittlerootTown_ProfessorBirchsLab_EventScript_PC2_Cancel
+	closemessage
+	call RivalPokedexDataShare
+	release
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PC2_AlreadyDone::
+	msgbox LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch, MSGBOX_SIGN
+	end
+
+LittlerootTown_ProfessorBirchsLab_EventScript_PC2_Cancel::
+	msgbox CancelShareDexDataText, MSGBOX_SIGN
+	release
+	end
+
+RivalPokedexDataShare::
+	playse SE_PC_ON
+	waitse
+	delay 20
+	playse SE_DEX_SEARCH
+	waitse
+	delay 20
+	setvar VAR_TEMP_1, SPECIES_BULBASAUR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CHARMANDER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SQUIRTLE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CATERPIE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WEEDLE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PIDGEY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_RATTATA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SPEAROW
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_EKANS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PIKACHU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_RAICHU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SANDSHREW
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SANDSLASH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NIDORAN_F
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NIDORAN_M
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CLEFAIRY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_VULPIX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NINETALES
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_JIGGLYPUFF
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WIGGLYTUFF
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ZUBAT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GOLBAT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ODDISH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GLOOM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_VILEPLUME
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PARAS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_VENONAT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DIGLETT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MEOWTH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PSYDUCK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GOLDUCK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MANKEY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GROWLITHE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_POLIWAG
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ABRA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_KADABRA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ALAKAZAM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MACHOP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MACHOKE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MACHAMP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BELLSPROUT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TENTACOOL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TENTACRUEL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GEODUDE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GRAVELER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GOLEM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PONYTA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SLOWPOKE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAGNEMITE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAGNETON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_FARFETCHD
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DODUO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DODRIO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SEEL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GRIMER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MUK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHELLDER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GASTLY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ONIX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DROWZEE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_KRABBY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_VOLTORB
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ELECTRODE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_EXEGGCUTE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CUBONE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HITMONLEE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HITMONCHAN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LICKITUNG
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_KOFFING
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WEEZING
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_RHYHORN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_RHYDON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CHANSEY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TANGELA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_KANGASKHAN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HORSEA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SEADRA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GOLDEEN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SEAKING
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_STARYU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_STARMIE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MR_MIME
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SCYTHER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_JYNX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ELECTABUZZ
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAGMAR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PINSIR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TAUROS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAGIKARP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GYARADOS
+	special SetSeenMon
+//	setvar VAR_TEMP_1, SPECIES_LAPRAS
+//	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DITTO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_EEVEE
+	special SetSeenMon
+//	setvar VAR_TEMP_1, SPECIES_PORYGON
+//	special SetSeenMon
+//	setvar VAR_TEMP_1, SPECIES_OMANYTE
+//	special SetSeenMon
+//	setvar VAR_TEMP_1, SPECIES_KABUTO
+//	special SetSeenMon
+//	setvar VAR_TEMP_1, SPECIES_AERODACTYL
+//	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SNORLAX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DRATINI
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CHIKORITA// ----------------------- START JOHTO POKEDEX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CYNDAQUIL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TOTODILE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SENTRET
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HOOTHOOT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LEDYBA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SPINARAK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CROBAT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CHINCHOU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LANTURN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PICHU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CLEFFA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_IGGLYBUFF
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NATU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_XATU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAREEP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BELLOSSOM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MARILL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_AZUMARILL
+	special SetSeenMon
+//	setvar VAR_TEMP_1, SPECIES_SUDOWOODO
+//	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HOPPIP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_AIPOM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SUNKERN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_YANMA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WOOPER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MURKROW
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MISDREAVUS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_UNOWN// Try other forms
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WOBBUFFET
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GIRAFARIG
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PINECO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DUNSPARCE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GLIGAR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_STEELIX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SNUBBULL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_QWILFISH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHUCKLE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HERACROSS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SNEASEL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TEDDIURSA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SLUGMA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAGCARGO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SWINUB
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CORSOLA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_REMORAID
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DELIBIRD
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MANTINE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SKARMORY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HOUNDOUR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_KINGDRA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PHANPY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DONPHAN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_STANTLER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SMEARGLE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HITMONTOP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MILTANK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LARVITAR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TREECKO// ----------------------- START HOENN POKEDEX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GROVYLE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SCEPTILE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TORCHIC
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_COMBUSKEN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BLAZIKEN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MUDKIP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MARSHTOMP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SWAMPERT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_POOCHYENA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MIGHTYENA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ZIGZAGOON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LINOONE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WURMPLE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SILCOON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BEAUTIFLY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CASCOON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DUSTOX
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LOTAD
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LOMBRE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LUDICOLO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SEEDOT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NUZLEAF
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHIFTRY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TAILLOW
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SWELLOW
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WINGULL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PELIPPER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_RALTS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_KIRLIA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GARDEVOIR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SURSKIT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MASQUERAIN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHROOMISH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BRELOOM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SLAKOTH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_VIGOROTH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SLAKING
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NINCADA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NINJASK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHEDINJA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WHISMUR
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LOUDRED
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_EXPLOUD
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAKUHITA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HARIYAMA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_AZURILL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NOSEPASS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SKITTY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DELCATTY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SABLEYE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MAWILE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ARON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LAIRON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_AGGRON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MEDITITE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MEDICHAM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ELECTRIKE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MANECTRIC
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_PLUSLE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MINUN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_VOLBEAT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ILLUMISE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ROSELIA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GULPIN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SWALOT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CARVANHA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHARPEDO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WAILMER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WAILORD
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_NUMEL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CAMERUPT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TORKOAL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SPOINK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GRUMPIG
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SPINDA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TRAPINCH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_VIBRAVA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_FLYGON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CACNEA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CACTURNE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SWABLU
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ALTARIA
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ZANGOOSE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SEVIPER
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LUNATONE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SOLROCK
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BARBOACH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WHISCASH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CORPHISH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CRAWDAUNT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BALTOY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CLAYDOL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LILEEP
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CRADILY
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ANORITH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ARMALDO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_FEEBAS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_MILOTIC
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CASTFORM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_KECLEON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHUPPET
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BANETTE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DUSKULL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_DUSCLOPS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_TROPIUS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CHIMECHO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_ABSOL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WYNAUT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SNORUNT
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GLALIE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SPHEAL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SEALEO
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_WALREIN
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_CLAMPERL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_HUNTAIL
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_GOREBYSS
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_RELICANTH
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_LUVDISC
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BAGON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SHELGON
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_SALAMENCE
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_BELDUM
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_METANG
+	special SetSeenMon
+	setvar VAR_TEMP_1, SPECIES_METAGROSS
+	special SetSeenMon
+	setflag FLAG_GOT_DEX_HELP
+	playfanfare MUS_OBTAIN_ITEM
+	msgbox RivalDexMixingSuccess_Text, MSGBOX_DEFAULT
+	waitmessage
+	waitfanfare
+	return
 
 LittlerootTown_ProfessorBirchsLab_Text_BirchAwayOnFieldwork:
 	.string "Hunh? PROF. BIRCH?\p"
@@ -816,6 +1467,20 @@ LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch:
 	.string "It's a PC used for research.\n"
 	.string "Better not mess around with it.$"
 
+LittlerootTown_ProfessorBirchsLab_Text_PCUsedForResearch2:
+	.string "It's a PC used for research.\p"
+	.string "{RIVAL} has uploaded their POKéDEX\n"
+	.string "data on wild POKéMON locations.\p"
+	.string "Would you like to share and receive\n"
+	.string "POKéDEX data for POKéMON locations?$"
+
+RivalDexMixingSuccess_Text:
+	.string "{PLAYER} shared POKéMON location\n"
+	.string "data with {RIVAL}!$"
+
+CancelShareDexDataText:
+	.string "Maybe later…$"
+
 LittlerootTown_ProfessorBirchsLab_Text_CrammedWithBooksOnPokemon:
 	.string "It's crammed with books on POKéMON.$"
 
@@ -839,6 +1504,24 @@ LittlerootTown_ProfessorBirchsLab_Text_OtherRegionsUpgradeToNational:
 	.string "the NATIONAL Mode.\p"
 	.string "Here, let me see your POKéDEX units.$"
 
+LittlerootTown_ProfessorBirchsLab_Text_RoamingBeasts1:
+	.string "PROF. BIRCH: So…\p"
+	.string "{PLAYER}{KUN} and {RIVAL}, I've had the two\n"
+	.string "of you help me study POKéMON, and\l"
+	.string "thanks to your help, new facts\l"
+	.string "have come to light.\p"
+	.string "Well, today I am once again asking for\n"
+	.string "your assistance in POKéMON research.\p"
+	.string "It seems that there are sightings of\n"
+	.string "very rare POKéMON from JOHTO now\l"
+	.string "roaming around HOENN.\p"
+	.string "I've contacted PROF. ELM on the matter,\n"
+	.string "and he has confirmed that the\l"
+	.string "sightings may indeed, be genuine.\p"
+	.string "He's sent me valuable data to give you\n"
+	.string "in the hopes that we can investigate.\p"
+	.string "Here, let me see your POKéDEX units.$"
+
 LittlerootTown_ProfessorBirchsLab_Text_MayUpgradeSoCool:
 	.string "MAY: Eheheh!\p"
 	.string "It's so cool that even my POKéDEX\n"
@@ -853,6 +1536,28 @@ LittlerootTown_ProfessorBirchsLab_Text_BrendanYouCanThankMe:
 	.string "the NATIONAL Mode POKéDEX.\p"
 	.string "Yep, you're lucky, {PLAYER}!$"
 
+LittlerootTown_ProfessorBirchsLab_Text_MayRoamingBeastsSoCool:
+	.string "MAY: Eheheh!\p"
+	.string "How cool is it that we get to help\n"
+	.string "PROF. ELM of JOHTO!?\p"
+	.string "I bet it's because we went out and\n"
+	.string "caught so many POKéMON, {PLAYER}{KUN}!\p"
+	.string "Oh, right! I've uploaded my POKéDEX\n"
+	.string "data to the PC here in the lab.\p"
+	.string "You can link up and mix sighting data\n"
+	.string "with me if you'd like.$"
+
+LittlerootTown_ProfessorBirchsLab_Text_BrendanRoamingBeastsLucky:
+	.string "BRENDAN: we went out all over HOENN\n"
+	.string "and checked out many POKéMON.\p"
+	.string "I'm sure this is why PROF. ELM\n"
+	.string "is letting us help.\l"
+	.string "Yep, we're lucky, {PLAYER}!\p"
+	.string "Oh yeah! I've uploaded my POKéDEX\n"
+	.string "records to the PC here in the lab.\p"
+	.string "If you link up to it we can share\n"
+	.string "our POKéMON sightings data!$"
+
 LittlerootTown_ProfessorBirchsLab_Text_OkayAllDone:
 	.string "PROF. BIRCH: Okay, all done!$"
 
@@ -860,14 +1565,36 @@ LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedToNational:
 	.string "{PLAYER}'s POKéDEX was upgraded\n"
 	.string "to the NATIONAL Mode!$"
 
+LittlerootTown_ProfessorBirchsLab_Text_PokedexUpgradedRoamingBeasts:
+	.string "{PLAYER}'s POKéDEX has received\n"
+	.string "new tracking data!$"
+
 LittlerootTown_ProfessorBirchsLab_Text_GrassyPatchWaiting2:
-	.string "PROF. BIRCH: But listen.\n"
+	.string "PROF. BIRCH: Listen…\n"
 	.string "You've become the CHAMPION,\l"
 	.string "but your POKéMON journey isn't over.\p"
 	.string "There is no end to the road\n"
 	.string "that is POKéMON.\p"
 	.string "Somewhere, there is a grassy patch\n"
 	.string "that's waiting for you!$"
+
+LittlerootTown_ProfessorBirchsLab_Text_RoamingBeastUpdate1:
+	.string "PROF. BIRCH: Thanks to the help of\n"
+	.string "a talented JOHTO trainer, PROF. ELM\l"
+	.string "was able to send tracking information\l"
+	.string "on these three rare POKéMON…$"
+
+LittlerootTown_ProfessorBirchsLab_Text_RoamingBeastUpdate2:
+	.string "PROF. BIRCH: In addition, we believe\n"
+	.string "there may be another rare POKéMON\l"
+	.string "roaming through HOENN.\p"
+	.string "However, for some mysterious reason,\n"
+	.string "tracking the POKéMON with a POKéDEX\l"
+	.string "has, so far, been impossible.\p"	
+	.string "Still, with your talents, I believe\n"
+	.string "that somewhere, you will soon discover\l"
+	.string "the grassy patch where that POKéMON\l"
+	.string "is just waiting for you!$"
 
 LittlerootTown_ProfessorBirchsLab_Text_MayTakeBreakFromFieldwork:
 	.string "MAY: I think I'll take a short break\n"
@@ -903,24 +1630,42 @@ LittlerootTown_ProfessorBirchsLab_Text_CanHaveAnyOneOfRarePokemon:
 	.string "only found in another region!\p"
 	.string "You can have any one of these\n"
 	.string "three POKéMON!$"
+//
+//LittlerootTown_ProfessorBirchsLab_Text_YoullTakeCyndaquil:
+//	.string "PROF. BIRCH: The FIRE POKéMON\n"
+//	.string "CYNDAQUIL caught your eye!\p"
+//	.string "You're as sharp as ever!\p"
+//	.string "So the CYNDAQUIL is your choice?$"
+//
+//LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTotodile:
+//	.string "PROF. BIRCH: The WATER POKéMON\n"
+//	.string "TOTODILE is your choice!\p"
+//	.string "You know how to pick a good one.\p"
+//	.string "So, you'll take the TOTODILE?$"
+//
+//LittlerootTown_ProfessorBirchsLab_Text_YoullTakeChikorita:
+//	.string "PROF. BIRCH: The GRASS POKéMON\n"
+//	.string "CHIKORITA is your choice!\p"
+//	.string "You sure know what you're doing.\p"
+//	.string "So, you'll take the CHIKORITA?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_YoullTakeCyndaquil:
-	.string "PROF. BIRCH: The FIRE POKéMON\n"
-	.string "CYNDAQUIL caught your eye!\p"
+	.string "PROF. BIRCH: The kicking POKéMON\n"
+	.string "HITMONLEE caught your eye!\p"
 	.string "You're as sharp as ever!\p"
-	.string "So the CYNDAQUIL is your choice?$"
+	.string "So the HITMONLEE is your choice?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_YoullTakeTotodile:
-	.string "PROF. BIRCH: The WATER POKéMON\n"
-	.string "TOTODILE is your choice!\p"
+	.string "PROF. BIRCH: The spinning POKéMON\n"
+	.string "HITMONTOP is your choice!\p"
 	.string "You know how to pick a good one.\p"
-	.string "So, you'll take the TOTODILE?$"
+	.string "So, you'll take the HITMONTOP?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_YoullTakeChikorita:
-	.string "PROF. BIRCH: The GRASS POKéMON\n"
-	.string "CHIKORITA is your choice!\p"
+	.string "PROF. BIRCH: The punching POKéMON\n"
+	.string "HITMONCHAN is your choice!\p"
 	.string "You sure know what you're doing.\p"
-	.string "So, you'll take the CHIKORITA?$"
+	.string "So, you'll take the HITMONCHAN?$"
 
 LittlerootTown_ProfessorBirchsLab_Text_TakeYourTimeAllInvaluable:
 	.string "PROF. BIRCH: Take your time before\n"

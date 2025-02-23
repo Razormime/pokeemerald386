@@ -154,7 +154,9 @@ SlateportCity_Pokemart_EnergyGuru:
 	.2byte ITEM_ZINC
 	.2byte ITEM_CALCIUM
 	.2byte ITEM_HP_UP
-	pokemartlistend
+	.2byte ITEM_NONE
+	release
+	end
 
 SlateportCity_EventScript_EffortRibbonWoman::
 	lock
@@ -497,22 +499,46 @@ SlateportCity_EventScript_AquaGrunt11::
 	release
 	end
 
-SlateportCity_EventScript_DollClerk::
+SlateportCity_EventScript_DollClerk2::
 	lock
 	faceplayer
+	goto_if_unset FLAG_DEFEATED_REGIROCK, SlateportCity_EventScript_DollClerk1
+	goto_if_unset FLAG_DEFEATED_REGICE, SlateportCity_EventScript_DollClerk1
+	goto_if_unset FLAG_DEFEATED_REGISTEEL, SlateportCity_EventScript_DollClerk1
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemartdecoration SlateportCity_PokemartDecor_Dolls2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+SlateportCity_EventScript_DollClerk1::
 	message gText_HowMayIServeYou
 	waitmessage
 	pokemartdecoration SlateportCity_PokemartDecor_Dolls
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	msgbox DollShopGettingMoreDolls, MSGBOX_DEFAULT
 	release
 	end
 
 	.align 2
 SlateportCity_PokemartDecor_Dolls:
-	.2byte DECOR_AZURILL_DOLL
-	.2byte DECOR_MARILL_DOLL
+	.2byte DECOR_PIKACHU_DOLL
+	.2byte DECOR_SEEDOT_DOLL
 	.2byte DECOR_SKITTY_DOLL
-	pokemartlistend
+	.2byte DECOR_NONE
+	release
+	end
+
+SlateportCity_PokemartDecor_Dolls2:
+	.2byte DECOR_PIKACHU_DOLL
+	.2byte DECOR_SEEDOT_DOLL
+	.2byte DECOR_SKITTY_DOLL
+	.2byte DECOR_REGIROCK_DOLL
+	.2byte DECOR_REGICE_DOLL
+	.2byte DECOR_REGISTEEL_DOLL
+	.2byte DECOR_NONE
+	release
+	end
 
 SlateportCity_EventScript_ComeBackWithSecretPower::
 	msgbox gText_ComeBackWithSecretPower, MSGBOX_DEFAULT
@@ -546,13 +572,17 @@ SlateportCity_PokemartDecor:
 	.2byte DECOR_A_NOTE_MAT
 	.2byte DECOR_B_NOTE_MAT
 	.2byte DECOR_C_HIGH_NOTE_MAT
-	pokemartlistend
+	.2byte DECOR_NONE
+	release
+	end
 
 SlateportCity_EventScript_PowerTMClerk::
 	lock
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
+	goto_if_set FLAG_BADGE08_GET, SlateportCity_EventScript_PowerTMClerk_V3
+	goto_if_set FLAG_BADGE04_GET, SlateportCity_EventScript_PowerTMClerk_V2
 	pokemart SlateportCity_Pokemart_PowerTMs
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -560,9 +590,119 @@ SlateportCity_EventScript_PowerTMClerk::
 
 	.align 2
 SlateportCity_Pokemart_PowerTMs:
-	.2byte ITEM_TM_HIDDEN_POWER
-	.2byte ITEM_TM_SECRET_POWER
-	pokemartlistend
+	.2byte ITEM_TM10  @ Hidden Power
+	.2byte ITEM_TM43  @ Secret Power
+	.2byte ITEM_NONE
+	release
+	end
+
+SlateportCity_EventScript_PowerTMClerk_V2::
+	pokemart SlateportCity_Pokemart_PowerTMs_2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_Pokemart_PowerTMs_2:
+	.2byte ITEM_TM01  @ Focus Punch
+	.2byte ITEM_TM05  @ Roar
+	.2byte ITEM_TM06  @ Toxic
+	.2byte ITEM_TM07  @ Hail
+	.2byte ITEM_TM09  @ Bullet Seed
+	.2byte ITEM_TM10  @ Hidden Power
+	.2byte ITEM_TM28  @ Dig
+	.2byte ITEM_TM36  @ Sludge Bomb
+	.2byte ITEM_TM37  @ Sandstorm
+	.2byte ITEM_TM41  @ Torment
+	.2byte ITEM_TM43  @ Secret Power
+	.2byte ITEM_TM45  @ Attract
+	.2byte ITEM_TM46  @ Thief
+	.2byte ITEM_TM47  @ Steel Wing
+	.2byte ITEM_NONE
+	release
+	end
+
+SlateportCity_EventScript_PowerTMClerk_V3::
+	pokemart SlateportCity_Pokemart_PowerTMs_3
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_Pokemart_PowerTMs_3:
+	.2byte ITEM_TM01  @ Focus Punch
+	.2byte ITEM_TM02  @ Dragon Claw
+	.2byte ITEM_TM05  @ Roar
+	.2byte ITEM_TM06  @ Toxic
+	.2byte ITEM_TM07  @ Hail
+	.2byte ITEM_TM09  @ Bullet Seed
+	.2byte ITEM_TM10  @ Hidden Power
+	.2byte ITEM_TM11  @ Sunny Day
+	.2byte ITEM_TM12  @ Taunt
+	.2byte ITEM_TM18  @ Rain Dance
+	.2byte ITEM_TM19  @ Giga Drain
+	.2byte ITEM_TM22  @ Solarbeam
+	.2byte ITEM_TM23  @ Iron Tail
+	.2byte ITEM_NONE
+	release
+	end
+
+SlateportCity_EventScript_PowerTMClerkBuddy::
+	lock
+	faceplayer
+	goto_if_unset FLAG_HIDE_SLATEPORT_CITY_TM_SALESMAN, TMShopReady_1_Script
+	msgbox TMShopNotReadyText, MSGBOX_DEFAULT
+	release
+	end
+
+TMShopReady_1_Script::
+	goto_if_set FLAG_BADGE04_GET, TMShopReady_2_Script
+	msgbox TMShopNowReadyText1, MSGBOX_DEFAULT
+	release
+	end
+
+TMShopReady_2_Script::
+	goto_if_set FLAG_BADGE08_GET, TMShopReady_3_Script
+	msgbox TMShopNowReadyText2, MSGBOX_DEFAULT
+	release
+	end
+
+TMShopReady_3_Script::
+	goto_if_set FLAG_TM_SHOP_FINAL, TMShopReady_4_Script
+	setflag FLAG_TM_SHOP_FINAL
+	msgbox TMShopNowReadyText3, MSGBOX_DEFAULT
+	closemessage
+	pokemart SlateportCity_Pokemart_PowerTMs_4
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+TMShopReady_4_Script::
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart SlateportCity_Pokemart_PowerTMs_4
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+SlateportCity_Pokemart_PowerTMs_4:
+	.2byte ITEM_TM26  @ Earthquake
+	.2byte ITEM_TM28  @ Dig
+	.2byte ITEM_TM30  @ Shadow Ball
+	.2byte ITEM_TM31  @ Brick Break
+	.2byte ITEM_TM36  @ Sludge Bomb
+	.2byte ITEM_TM37  @ Sandstorm
+	.2byte ITEM_TM41  @ Torment
+	.2byte ITEM_TM43  @ Secret Power
+	.2byte ITEM_TM44  @ Rest
+	.2byte ITEM_TM45  @ Attract
+	.2byte ITEM_TM46  @ Thief
+	.2byte ITEM_TM47  @ Steel Wing
+	.2byte ITEM_TM48  @ Skill Swap
+	.2byte ITEM_NONE
+	release
+	end
 
 @ Scene with Capt Sterns interview and Team Aqua announcing plans to steal Submarine
 SlateportCity_EventScript_CaptStern::
@@ -1375,3 +1515,31 @@ SlateportCity_Text_TakingBattleTentChallenge:
 	.string "After all, a tough TRAINER is\n"
 	.string "the perfect fit for the BATTLE TENT!\p"
 	.string "Give it your best effort!$"
+
+TMShopNotReadyText:
+	.string "Oh, hello!\p"
+	.string "I'm sorry, but we've just arrived and\n"
+	.string "haven't finished setting up shop, yet.\p"
+	.string "If you come back later, I promise we'll\n"
+	.string "have some good TMs for you to buy!$"
+
+TMShopNowReadyText1:
+	.string "We've finally opened!\p"
+	.string "We only have a couple TMs right now,\n"
+	.string "but we'll be getting lots more!\l"
+	.string "So make sure you come back later!$"
+
+TMShopNowReadyText2:
+	.string "We've got plenty of TMs now!\p"
+	.string "But we're trying to get even more!\n"
+	.string "So make sure you come back later!$"
+
+TMShopNowReadyText3:
+	.string "I think we've finally got all\n"
+	.string "the TM's we can carry!\p"
+	.string "So then, how can we help you?$"
+
+DollShopGettingMoreDolls:
+	.string "Thank you for your interest!\p"
+	.string "I'm currently busy making some really\n"
+	.string "cool new DOLLS, so please visit again!$"

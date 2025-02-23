@@ -60,7 +60,7 @@ static void SpriteCB_CryMeterNeedle(struct Sprite *);
 static void SetCryMeterNeedleTarget(s8);
 
 // IWRAM common
-COMMON_DATA u8 gDexCryScreenState = 0;
+u8 gDexCryScreenState;
 
 // EWRAM vars
 static EWRAM_DATA struct PokedexCryScreen *sDexCryScreen = NULL;

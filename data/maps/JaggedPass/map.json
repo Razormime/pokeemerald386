@@ -12,7 +12,13 @@
   "allow_running": true,
   "show_map_name": true,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": [
+    {
+      "map": "MAP_JAGGED_PASS2",
+      "offset": -12,
+      "direction": "left"
+    }
+  ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
@@ -23,7 +29,7 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "4",
       "script": "JaggedPass_EventScript_Eric",
       "flag": "0"
     },
@@ -55,14 +61,14 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
-      "x": 9,
-      "y": 21,
+      "x": 5,
+      "y": 19,
       "elevation": 3,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP_AND_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 1,
       "movement_range_y": 1,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "3",
+      "trainer_sight_or_berry_tree_id": "2",
       "script": "JaggedPass_EventScript_Diana",
       "flag": "0"
     },
@@ -141,6 +147,13 @@
       "elevation": 0,
       "dest_map": "MAP_MAGMA_HIDEOUT_1F",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 11,
+      "elevation": 3,
+      "dest_map": "MAP_FIERY_PATH2",
+      "dest_warp_id": "1"
     }
   ],
   "coord_events": [
@@ -167,7 +180,7 @@
     },
     {
       "type": "weather",
-      "x": 18,
+      "x": 7,
       "y": 17,
       "elevation": 3,
       "weather": "COORD_EVENT_WEATHER_SUNNY"
@@ -228,8 +241,8 @@
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 8,
-      "y": 10,
+      "x": 1,
+      "y": 15,
       "elevation": 3,
       "item": "ITEM_FULL_HEAL",
       "flag": "FLAG_HIDDEN_ITEM_JAGGED_PASS_FULL_HEAL"

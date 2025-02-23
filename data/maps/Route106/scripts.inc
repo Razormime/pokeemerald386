@@ -41,8 +41,43 @@ Route106_EventScript_Ned::
 	msgbox Route106_Text_NedPostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route106_EventScript_Lapras_Tuber::
+	goto_if_set FLAG_CAUGHT_LAPRAS, Route106_EventScript_Lapras_Tuber_No_Roar
+	goto_if_set FLAG_DEFEATED_LAPRAS, Route106_EventScript_Lapras_Tuber_No_Roar
+	msgbox TuberText_LaprasRoar, MSGBOX_NPC
+	end
+
+Route106_EventScript_Lapras_Tuber_No_Roar::
+	msgbox TuberText_LaprasNoRoar, MSGBOX_NPC
+	end
+
+Route106_EventScript_Lapras_Tuber2::
+	goto_if_set FLAG_CAUGHT_LAPRAS, Route106_EventScript_Lapras_Tuber_No_Roar2
+	goto_if_set FLAG_DEFEATED_LAPRAS, Route106_EventScript_Lapras_Tuber_No_Roar2
+	msgbox Tuber2Text_LaprasRoar, MSGBOX_NPC
+	end
+
+Route106_EventScript_Lapras_Tuber_No_Roar2::
+	msgbox Tuber2Text_LaprasNoRoar, MSGBOX_NPC
+	end
+
 Route106_Text_TrainerTips:
 	.string "TRAINER TIPS\p"
 	.string "Advice on catching POKéMON with a ROD:\n"
 	.string "Press the A Button if you get a bite.$"
 
+TuberText_LaprasRoar:
+	.string "We wanna make this our hideout.\p"
+	.string "But we can hear something in there…$"
+
+TuberText_LaprasNoRoar:
+	.string "This island is our hideout now!\p"
+	.string "…unless the monster comes back…$"
+
+Tuber2Text_LaprasRoar:
+	.string "I think a monster is trapped deep in\n"
+	.string "the cave, but I cant see anything…$"
+
+Tuber2Text_LaprasNoRoar:
+	.string "The monster is gone!\p"
+	.string "…we hope…$"

@@ -4,6 +4,7 @@ LavaridgeTown_Mart_MapScripts::
 LavaridgeTown_Mart_EventScript_Clerk::
 	lock
 	faceplayer
+	goto_if_set FLAG_RECEIVED_TM_OVERHEAT, LavaridgeTown_Mart_EventScript_Clerk2
 	message gText_HowMayIServeYou
 	waitmessage
 	pokemart LavaridgeTown_Mart_Pokemart
@@ -22,7 +23,35 @@ LavaridgeTown_Mart_Pokemart:
 	.2byte ITEM_REVIVE
 	.2byte ITEM_SUPER_REPEL
 	.2byte ITEM_X_SPEED
-	pokemartlistend
+	.2byte ITEM_NONE
+	release
+	end
+
+LavaridgeTown_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart LavaridgeTown_Mart_Pokemart2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+LavaridgeTown_Mart_Pokemart2:
+	.2byte ITEM_TM50
+	.2byte ITEM_GREAT_BALL
+	.2byte ITEM_SUPER_POTION
+	.2byte ITEM_ANTIDOTE
+	.2byte ITEM_PARALYZE_HEAL
+	.2byte ITEM_AWAKENING
+	.2byte ITEM_BURN_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_SUPER_REPEL
+	.2byte ITEM_X_SPEED
+	.2byte ITEM_NONE
+	release
+	end
 
 LavaridgeTown_Mart_EventScript_ExpertM::
 	msgbox LavaridgeTown_Mart_Text_XSpeedFirstStrike, MSGBOX_NPC
@@ -42,4 +71,3 @@ LavaridgeTown_Mart_Text_LocalSpecialtyOnMtChimney:
 	.string "On MT. CHIMNEY's peak, there's a local\n"
 	.string "specialty that you can buy only there.\p"
 	.string "Give it to a POKéMON--it will be elated.$"
-

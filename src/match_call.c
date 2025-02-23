@@ -131,7 +131,7 @@ static EWRAM_DATA struct MatchCallState sMatchCallState = {0};
 static EWRAM_DATA struct BattleFrontierStreakInfo sBattleFrontierStreakInfo = {0};
 
 static u32 GetCurrentTotalMinutes(struct Time *);
-static u32 GetNumRegisteredTrainers(void);
+static u32 GetNumRegisteredNPCs(void);
 static u32 GetActiveMatchCallTrainerId(u32);
 static int GetTrainerMatchCallId(int);
 static u16 GetRematchTrainerLocation(int);
@@ -1098,7 +1098,7 @@ static bool32 UpdateMatchCallStepCounter(void)
 static bool32 SelectMatchCallTrainer(void)
 {
     u32 matchCallId;
-    u32 numRegistered = GetNumRegisteredTrainers();
+    u32 numRegistered = GetNumRegisteredNPCs();
     if (numRegistered == 0)
         return FALSE;
 
@@ -1114,13 +1114,12 @@ static bool32 SelectMatchCallTrainer(void)
     return TRUE;
 }
 
-// Ignores registrable non-trainer NPCs, and special trainers like Wally and the gym leaders.
-static u32 GetNumRegisteredTrainers(void)
+static u32 GetNumRegisteredNPCs(void)
 {
     u32 i, count;
     for (i = 0, count = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
     {
-        if (FlagGet(TRAINER_REGISTERED_FLAGS_START + i))
+        if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
             count++;
     }
 
@@ -1132,7 +1131,7 @@ static u32 GetActiveMatchCallTrainerId(u32 activeMatchCallId)
     u32 i;
     for (i = 0; i < REMATCH_SPECIAL_TRAINER_START; i++)
     {
-        if (FlagGet(TRAINER_REGISTERED_FLAGS_START + i))
+        if (FlagGet(FLAG_MATCH_CALL_REGISTERED + i))
         {
             if (!activeMatchCallId)
                 return gRematchTable[i].trainerIds[0];

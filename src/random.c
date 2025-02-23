@@ -5,8 +5,8 @@ EWRAM_DATA static u8 sUnknown = 0;
 EWRAM_DATA static u32 sRandCount = 0;
 
 // IWRAM common
-COMMON_DATA u32 gRngValue = 0;
-COMMON_DATA u32 gRng2Value = 0;
+u32 gRngValue;
+u32 gRng2Value;
 
 u16 Random(void)
 {

@@ -23,7 +23,7 @@ static u8 sMapMusicState;
 static u8 sMapMusicFadeInSpeed;
 static u16 sFanfareCounter;
 
-COMMON_DATA bool8 gDisableMusic = 0;
+bool8 gDisableMusic;
 
 extern struct ToneData gCryTable[];
 extern struct ToneData gCryTable_Reverse[];

@@ -1,6 +1,92 @@
 LilycoveCity_CoveLilyMotel_2F_MapScripts::
 	.byte 0
 
+LilycoveCity_CoveLilyMotel_2F_EventScript_Stereo::
+	lockall
+	goto_if_set FLAG_SYS_GAME_CLEAR, LilycoveCity_CoveLilyMotel_2F_EventScript_Stereo2
+	msgbox NoBGMSelectionText, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	releaseall
+	end
+
+LilycoveCity_CoveLilyMotel_2F_EventScript_Stereo2::
+	msgbox BGMSelectionText, MSGBOX_DEFAULT
+	waitmessage
+	closemessage
+	multichoice 17, 0, MULTI_UNUSED_SSTIDAL_4, FALSE
+	switch VAR_RESULT
+	case 0, BGM_ST_Anne
+	case 1, BGM_Viridian_Forest_Select
+	case 2, BGM_Lavender_Town_Select
+	case 3, BGM_Pokemon_Tower_Select
+	case 4, BGM_Pokemon_Mansion_Select
+	case 5, BGM_Silph_CO_Select
+	case 6, BGM_Rocket_Hideout_Select
+	case 7, BGM_Cancel
+	case MULTI_B_PRESSED, BGM_Cancel
+	end
+
+BGM_ST_Anne::
+	playse SE_RG_BALL_CLICK
+	waitse
+	fadeoutbgm 1
+	playbgm MUS_RG_SS_ANNE, TRUE
+	release
+	end
+
+BGM_Viridian_Forest_Select::
+	playse SE_RG_BALL_CLICK
+	waitse
+	fadeoutbgm 1
+	playbgm MUS_RG_VIRIDIAN_FOREST, TRUE
+	release
+	end
+
+BGM_Lavender_Town_Select::
+	playse SE_RG_BALL_CLICK
+	waitse
+	fadeoutbgm 1
+	playbgm MUS_RG_LAVENDER, TRUE
+	release
+	end
+
+BGM_Pokemon_Tower_Select::
+	playse SE_RG_BALL_CLICK
+	waitse
+	fadeoutbgm 1
+	playbgm MUS_RG_POKE_TOWER, TRUE
+	release
+	end
+
+BGM_Pokemon_Mansion_Select::
+	playse SE_RG_BALL_CLICK
+	waitse
+	fadeoutbgm 1
+	playbgm MUS_RG_POKE_MANSION, TRUE
+	release
+	end
+
+BGM_Silph_CO_Select::
+	playse SE_RG_BALL_CLICK
+	waitse
+	fadeoutbgm 1
+	playbgm MUS_RG_SILPH, TRUE
+	release
+	end
+
+BGM_Rocket_Hideout_Select::
+	playse SE_RG_BALL_CLICK
+	waitse
+	fadeoutbgm 1
+	playbgm MUS_RG_ROCKET_HIDEOUT, TRUE
+	release
+	end
+
+BGM_Cancel::
+	release
+	end
+
 LilycoveCity_CoveLilyMotel_2F_EventScript_GameDesigner::
 	lock
 	faceplayer
@@ -65,6 +151,14 @@ LilycoveCity_CoveLilyMotel_2F_EventScript_MetScott::
 	msgbox LilycoveCity_CoveLilyMotel_2F_Text_ContestsDoTakeStrategy, MSGBOX_DEFAULT
 	release
 	end
+
+NoBGMSelectionText:
+	.string "There's a stereo here…$"
+
+BGMSelectionText:
+	.string "The stereo has a video game OST\n"
+	.string "loaded into it!\p"
+	.string "Which track sounds interesting…$"
 
 LilycoveCity_CoveLilyMotel_2F_Text_ShowMeCompletedDex:
 	.string "I'm the GAME DESIGNER.\p"

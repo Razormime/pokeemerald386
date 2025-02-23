@@ -180,8 +180,9 @@ void NewGameInitData(void)
     gPlayerPartyCount = 0;
     ZeroPlayerPartyMons();
     ResetPokemonStorageSystem();
-    ClearRoamerData();
-    ClearRoamerLocationData();
+//    ClearRoamerData();
+//    ClearRoamerLocationData();
+	StopAllRoamers();
     gSaveBlock1Ptr->registeredItem = ITEM_NONE;
     ClearBag();
     NewGameInitPCItems();
@@ -204,6 +205,10 @@ void NewGameInitData(void)
     WipeTrainerNameRecords();
     ResetTrainerHillResults();
     ResetContestLinkResults();
+//#if MULTIPLE_ROAMERS_EXAMPLE//roamer_expansion
+//    InitRoamer();
+//    FlagSet(FLAG_SYS_POKEDEX_GET);
+//#endif
 }
 
 static void ResetMiniGamesRecords(void)

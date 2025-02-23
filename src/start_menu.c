@@ -75,7 +75,7 @@ enum
 };
 
 // IWRAM common
-COMMON_DATA bool8 (*gMenuCallback)(void) = NULL;
+bool8 (*gMenuCallback)(void);
 
 // EWRAM
 EWRAM_DATA static u8 sSafariBallsWindowId = 0;

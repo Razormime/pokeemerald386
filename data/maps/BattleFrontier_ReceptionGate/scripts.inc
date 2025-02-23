@@ -60,6 +60,20 @@ BattleFrontier_ReceptionGate_EventScript_ScottScene::
 	waitmovement 0
 	msgbox BattleFrontier_ReceptionGate_Text_ScottGreatToSeeYouHere, MSGBOX_DEFAULT
 	closemessage
+	applymovement LOCALID_SCOTT, BattleFrontier_ReceptionGate_Movement_ScottForgot
+	waitmovement 0
+	playse SE_PIN
+	applymovement LOCALID_SCOTT, Common_Movement_ExclamationMark
+	waitmovement 0
+	applymovement LOCALID_SCOTT, Common_Movement_Delay48
+	waitmovement 0
+	applymovement LOCALID_SCOTT, BattleFrontier_ReceptionGate_Movement_ScottCameBack
+	waitmovement 0
+	msgbox ScottText_Eon_Ticket, MSGBOX_DEFAULT
+	giveitem ITEM_EON_TICKET
+	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
+	msgbox ScottText_Eon_Ticket2, MSGBOX_DEFAULT
+	closemessage
 	applymovement LOCALID_SCOTT, BattleFrontier_ReceptionGate_Movement_ScottExit
 	waitmovement 0
 	removeobject LOCALID_SCOTT
@@ -94,6 +108,14 @@ BattleFrontier_ReceptionGate_Movement_ScottEnter:
 	walk_down
 	walk_down
 	walk_down
+	walk_left
+	step_end
+
+BattleFrontier_ReceptionGate_Movement_ScottForgot:
+	walk_right
+	step_end
+
+BattleFrontier_ReceptionGate_Movement_ScottCameBack:
 	walk_left
 	step_end
 
@@ -343,6 +365,15 @@ BattleFrontier_ReceptionGate_Text_ScottGreatToSeeYouHere:
 	.string "I also have my quarters here, so feel\n"
 	.string "free to visit if you have time.$"
 
+ScottText_Eon_Ticket:
+	.string "Whoops! I almost forgot about\n"
+	.string "this delivery!\p"
+	.string "I was asked to pass this\n"
+	.string "along to you, so here you are!$"
+
+ScottText_Eon_Ticket2:
+	.string "See you around, {PLAYER}{KUN}!$"
+
 BattleFrontier_ReceptionGate_Text_YourGuideToFacilities:
 	.string "I'm your guide to the various facilities\n"
 	.string "here in the BATTLE FRONTIER.$"
@@ -507,4 +538,3 @@ BattleFrontier_ReceptionGate_Text_BattlePointsInfo:
 	.string "You may trade in your Battle Points\n"
 	.string "for prizes at the EXCHANGE SERVICE\l"
 	.string "CORNER.$"
-

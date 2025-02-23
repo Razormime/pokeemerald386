@@ -374,7 +374,7 @@ const u8 gPoliwrathPokedexText[] = _(
     "Its highly developed muscles never grow\n"
     "fatigued, however much it exercises.\n"
     "This POKéMON can swim back and forth\n"
-    "across the Pacific Ocean without effort.");
+    "across the largest oceans without effort.");
 
 const u8 gAbraPokedexText[] = _(
     "A POKéMON that sleeps 18 hours a day.\n"
@@ -1351,7 +1351,7 @@ const u8 gOctilleryPokedexText[] = _(
 const u8 gDelibirdPokedexText[] = _(
     "It carries food bundled up in its tail.\n"
     "There was a famous explorer who\n"
-    "managed to scale Mt. Everest thanks\n"
+    "managed to scale Mt. Avalanche thanks\n"
     "to a DELIBIRD sharing its food.");
 
 const u8 gMantinePokedexText[] = _(
@@ -2267,7 +2267,7 @@ const u8 gRegirockPokedexText[] = _(
     "adding new rocks.");
 
 const u8 gRegicePokedexText[] = _(
-    "Its entire body is made of Antarctic ice.\n"
+    "Its entire body is made of glacial ice.\n"
     "After extensive studies, researchers\n"
     "believe the ice was formed during an\n"
     "ice age.");

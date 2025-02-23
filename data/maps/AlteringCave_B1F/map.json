@@ -1,0 +1,53 @@
+{
+  "id": "MAP_ALTERING_CAVE_B1F",
+  "name": "AlteringCave_B1F",
+  "layout": "LAYOUT_ALTERING_CAVE_B1F",
+  "music": "MUS_RG_SEVII_CAVE",
+  "region_map_section": "MAPSEC_ALTERING_CAVE",
+  "requires_flash": true,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_UNDERGROUND",
+  "allow_cycling": true,
+  "allow_escaping": true,
+  "allow_running": true,
+  "show_map_name": true,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": 0,
+  "object_events": [
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
+      "x": 7,
+      "y": 5,
+      "elevation": 4,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN",
+      "movement_range_x": 1,
+      "movement_range_y": 1,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "AlteringCave_B1F_EventScript_KingsRock",
+      "flag": "FLAG_ITEM_ALTERING_CAVE_B1F_KINGS_ROCK"
+    }
+  ],
+  "warp_events": [
+    {
+      "x": 1,
+      "y": 13,
+      "elevation": 3,
+      "dest_map": "MAP_ALTERING_CAVE",
+      "dest_warp_id": "1"
+    },
+    {
+      "x": 12,
+      "y": 7,
+      "elevation": 4,
+      "dest_map": "MAP_ALTERING_CAVE_B2F",
+      "dest_warp_id": "0"
+    }
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
+}

@@ -1,0 +1,193 @@
+|| POKEMON EMERALD 386 COMPLETE BERRY LOCATION LIST (v1.3.4) ||
+
+(i) This guide does not mention pre-planted berry trees (with one notable exception).
+(i) This guide will not mention removed vanilla methods
+(i) + Indicates newly introduced methods
+(i) - Indicates still-used methods from vanilla Emerald
+(i) ! Indicates a ONE TIME ONLY method from vanilla Emerald
+(i) Please also see the SPECIAL NOTES section at the bottom of the document.
+
+-----------------------------------------------------------------------------------------------------------
+|| BERRY LIST BY NUMBER ||
+-----------------------------------------------------------------------------------------------------------
+
+01. Cheri	- Route 104 Flower Shop Girl's random daily gift
+			- Lilycove City Gentleman's random daily gift
+02. Chesto	- Route 104 Flower Shop Girl's random daily gift
+			- Lilycove City Gentleman's random daily gift
+			! Route 104 Old Woman's gift
+03. Pecha	- Route 104 Flower Shop Girl's random daily gift
+			- Lilycove City Gentleman's random daily gift
+04. Rawst	- Route 104 Flower Shop Girl's random daily gift
+			- Lilycove City Gentleman's random daily gift
+05. Aspear	- Route 104 Flower Shop Girl's random daily gift
+			- Lilycove City Gentleman's random daily gift
+06. Leppa	- Route 104 Flower Shop Girl's random daily gift
+			- Lilycove City Gentleman's random daily gift
+07. Oran	- Lilycove City Gentleman's random daily gift
+08. Persim	- Lilycove City Gentleman's random daily gift
+09. Lum		- Lilycove City Gentleman's random daily gift
+			+ Held by Celebii
+10. Sitrus	- Lilycove City Gentleman's random daily gift
+11. Figy	- Sootopolis City Kiri's random daily gift
+12. Wiki	+ Commonly held by wild Murkrow
+13. Mago	+ Commonly held by Meowth
+14. Aguav	+ Commonly held by Mankey
+15. Iapapa	- Sootopolis City Kiri's random daily gift
+16. Razz	- Route 111 Girl's daily gift
+			- Route 114 Guy's random raily gift
+17. Bluk	- Route 114 Guy's random raily gift
+18. Nanab	- Route 114 Guy's random raily gift
+19. Wepear	- Route 114 Guy's random raily gift
+20. Pinap	- Route 114 Guy's random raily gift
+21. Pomeg	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+22. Kelpsy	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+23. Qualot	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+24. Hondew	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+25. Grepa	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+26. Tamato	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+27. Cornn	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+28. Magost	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+29. Rabuta	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+30. Nomel	- Berry Master's random daily gift
+			- Sootopolis City Kiri's random daily gift
+31. Spelon	- Berry Master's Wife's secret phrase: GREAT BATTLE
+			+ Berry Master's Wife's random daily gift
+32. Pamtre	- Berry Master's Wife's secret phrase: CHALLENGE CONTEST (unlocked with contest pass)
+			+ Berry Master's Wife's random daily gift
+33. Watmel	- Berry Master's Wife's secret phrase: OVERWHELMING LATIAS (unlocked with Latias Pokedex entry)
+			+ Berry Master's Wife's random daily gift
+34. Durin	- Berry Master's Wife's secret phrase: COOL LATIOS (unlocked with Latios Pokedex entry)
+			+ Berry Master's Wife's random daily gift
+35. Belue	- Berry Master's Wife's secret phrase: SUPER HUSTLE
+			+ Berry Master's Wife's random daily gift
+36. Liechi	+ Berry Master's Wife's random daily gift
+			+ Held by Gift Jirachi
+			- Found on Mirage Island
+37. Ganlon	+ Berry Master's Wife's random daily gift
+			+ Hidden near Battle Frontier Bed & Breakfast (respawns with each Elite 4 victory)
+38. Salac	+ Berry Master's Wife's random daily gift
+			+ Hidden near Battle Frontier Bed & Breakfast (respawns with each Elite 4 victory)
+39. Petaya	+ Commonly held by Teddiursa
+40. Apicot	+ Hidden near Battle Frontier Bed & Breakfast (respawns with each Elite 4 victory)
+41. Lansat	! Battle Frontier Scott's Gift for obtaining all Battle Frontier Silver Symbols (x3)
+42. Starf	! Battle Frontier Scott's Gift for obtaining all Battle Frontier Silver Symbols (x3)
+43. Enigma	X (Unobtainable: See Special Information at bottom of this guide for why)
+
+-----------------------------------------------------------------------------------------------------------
+|| BERRY LIST BY METHOD ||
+-----------------------------------------------------------------------------------------------------------
+
+ROUTE 104: PRETTY PETAL FLOWER SHOP GIRL'S DAILY RANDOM SINGLE-BERRY GIFT
+01. Cheri
+02. Chesto
+03. Pecha
+04. Rawst
+05. Aspear
+06. Leppa
+
+LILYCOVE CITY: GENTLEMAN'S DAILY RANDOM SINGLE-BERRY GIFT
+01. Cheri
+02. Chesto
+03. Pecha
+04. Rawst
+05. Aspear
+06. Leppa
+07. Oran
+08. Persim
+09. Lum
+10. Sitrus
+
+SOOTOPOLIS CITY: KIRI'S DAILY RANDOM DOUBLE-BERRY GIFT
+11. Figy
+15. Iapapa
+21. Pomeg
+22. Kelpsy
+23. Qualot
+24. Hondew
+25. Grepa
+26. Tamato
+27. Cornn
+28. Magost
+29. Rabuta
+30. Nomel
+
+ROUTE 111: MAN'S DAILY RANDOM SINGLE-BERRY GIFT
+16. Razz
+17. Bluk
+18. Nanab
+19. Wepear
+20. Pinap
+
+ROUTE 123: BERRY MASTER'S DAILY RANDOM DOUBLE-BERRY GIFT
+21. Pomeg
+22. Kelpsy
+23. Qualot
+24. Hondew
+25. Grepa
+26. Tamato
+27. Cornn
+28. Magost
+29. Rabuta
+30. Nomel
+
+ROUTE 123: BERRY MASTER'S WIFE'S DAILY RANDOM SINGLE-BERRY GIFT (and alternate one-time secret phrase)
+31. Spelon	- secret phrase: "GREAT BATTLE"
+32. Pamtre	- secret phrase: "CHALLENGE CONTEST" (unlocked with contest pass)
+33. Watmel	- secret phrase: "OVERWHELMING LATIAS" (unlocked with Latias Pokedex entry)
+34. Durin	- secret phrase: "COOL LATIOS" (unlocked with Latios Pokedex entry)
+35. Belue	- secret phrase: "SUPER HUSTLE"
+36. Liechi
+37. Ganlon
+38. Salac
+
+FOUND ON POKEMON
+09. Lum		+ Event Celebii (100% - but may use in battle)
+12. Wiki	+ Wild Murkrow	(Common)
+13. Mago	+ Wild Meowth	(Common)
+14. Aguav	+ Wild Mankey	(Common)
+36. Liechi	+ Gift Jirachi	(100%)
+39. Petaya	+ Teddiursa		(Common)
+
+RARE FINDS
+36. Liechi	- Mirage Island (as a Berry Tree)
+37. Ganlon	+ Battle Frontier: Hidden near the Bed & Breakfast (respawns with each Elite 4 victory)
+38. Salac	+ Battle Frontier: Hidden near the Bed & Breakfast (respawns with each Elite 4 victory)
+40. Apicot  + Battle Frontier: Hidden near the Bed & Breakfast (respawns with each Elite 4 victory)
+
+ONE-TIME GIFTS
+02. Chesto	! Route 104: Old Woman (1 berry) (Note: can still be found, repeatably, in the flower shop.)
+41. Lansat	! Battle Frontier: Scott (3 Berries) - Gift for obtaining all Battle Frontier SILVER Symbols
+42. Starf	! Battle Frontier: Scott (3 Berries) - Gift for obtaining all Battle Frontier GOLD Symbols
+
+-----------------------------------------------------------------------------------------------------------
+|| SPECIAL NOTES ||
+-----------------------------------------------------------------------------------------------------------
+
+With the original "Berry Update (v1.3)" I had made Engima Berries available, even though they are pretty
+much a novelty - the berries don't really do anything special to Pokeblocks, and do nothing by themselves.
+However, after a few days of thought, I've decided to remove them again (v1.3.3).
+The problem with these berries is that a planted Enigma Berry will take a full 96hrs before it can be
+harvested! If a player were to plant a bunch of these berries, not knowing they take so long to harvest
+and that they have no real use, they will be stuck with these plants for a long time - ESPECIALLY if their
+emulator does not have a working RTC (where they will need to pass 96hrs using actual play-time).
+
+All OTHER berries are now infinitely obtainable without planting EXCEPT Lansat and Starf berries. 
+I've left these two prizes as they are to keep their importance, however, I have updated the quantity you
+recieve to THREE berries each (instead of just one) so that you can plant one and keep a couple in pocket
+until the first plant has fully fruited, giving you more, and keeping berries safe from disappearing. My
+advice is to put a couple on a few Pokemon you will never really use or release as backup.
+
+SPECIAL THANKS: The "Berry FAQ (v0.991)" by verbalillusion on GameFAQs was consulted not only in preparing 
+the info for vanilla acquisitions in this guide, but for also guiding me to which berries needed changing
+or adding to the Emerald 386 project as a whole, so this is a super special thank you to them! Follow this
+link for their original FAQ: https://gamefaqs.gamespot.com/gba/921905-pokemon-emerald-version/faqs/38369 

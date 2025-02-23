@@ -880,9 +880,7 @@ static void Mailbox_CancelMoveToBag(u8 taskId)
 static void Mailbox_Give(u8 taskId)
 {
     if (CalculatePlayerPartyCount() == 0)
-    {
         Mailbox_NoPokemonForMail(taskId);
-    }
     else
     {
         FadeScreen(FADE_TO_BLACK, 0);

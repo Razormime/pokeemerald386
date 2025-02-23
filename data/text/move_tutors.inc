@@ -2,6 +2,10 @@ MoveTutor_Text_ThisMoveCanOnlyBeLearnedOnce:
 	.string "This move can be learned only\n"
 	.string "once. Is that okay?$"
 
+MoveTutor_Text_ThisMoveCanOnlyBeLearnedAgain:
+	.string "I won't teach this again for a while,\n"
+	.string "Is that okay with you?$"
+
 MoveTutor_Text_SwaggerTeach:
 	.string "Heh! My POKéMON totally rules!\n"
 	.string "It's cooler than any POKéMON!\p"
@@ -21,8 +25,8 @@ MoveTutor_Text_SwaggerWhichMon:
 	.string "learn how to SWAGGER?$"
 
 MoveTutor_Text_SwaggerTaught:
-	.string "I'll just praise my POKéMON from now\n"
-	.string "on without the swagger.$"
+	.string "I can also praise my POKéMON without\n"
+	.string "all of that swagger, you know!$"
 
 MoveTutor_Text_RolloutTeach:
 	.string "Did you know that you can go from\n"
@@ -208,8 +212,8 @@ MoveTutor_Text_DoubleEdgeWhichMon:
 	.string "DOUBLE-EDGE?$"
 
 MoveTutor_Text_DoubleEdgeTaught:
-	.string "I won't live for love anymore!\n"
-	.string "I'll become tough!$"
+	.string "Maybe I won't live for love anymore…\n"
+	.string "Maybe I'll become tough!$"
 
 MoveTutor_Text_ExplosionTeach:
 	.string "I don't intend to be going nowhere\n"
@@ -233,5 +237,5 @@ MoveTutor_Text_ExplosionTaught:
 	.string "For a long time, I've taught POKéMON\n"
 	.string "how to use EXPLOSION, but I've yet\l"
 	.string "to ignite my own EXPLOSION…\p"
-	.string "Maybe it's because deep down,\n"
-	.string "I would rather stay here…$"
+	.string "I wonder if because deep down,\n"
+	.string "I would maybe rather stay here…$"

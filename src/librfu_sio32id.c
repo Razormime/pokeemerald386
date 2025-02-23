@@ -15,7 +15,7 @@ struct RfuSIO32Id
     u16 lastId;
 };
 
-COMMON_DATA struct RfuSIO32Id gRfuSIO32Id = {0};
+struct RfuSIO32Id gRfuSIO32Id;
 
 static const u16 Sio32ConnectionData[] = { 0x494e, 0x544e, 0x4e45, 0x4f44 }; // NINTENDO
 static const char Sio32IDLib_Var[] = "Sio32ID_030820";
@@ -145,9 +145,7 @@ static void Sio32IDIntr(void)
                 }
             }
             else
-            {
                 gRfuSIO32Id.lastId = regSIODATA32;
-            }
         }
         else
         {

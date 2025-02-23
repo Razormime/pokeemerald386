@@ -288,6 +288,14 @@ static const struct MenuAction MultichoiceList_HowsFishing[] =
     {gText_NotSoGood},
 };
 
+static const struct MenuAction MultichoiceList_FishingBook[] =
+{
+    {gText_OldRodChapter},
+    {gText_GoodRodChapter},
+    {gText_SuperRodChapter},
+    {gText_Exit},
+};
+
 static const struct MenuAction MultichoiceList_SSTidalSlateportWithBF[] =
 {
     {gText_LilycoveCity},
@@ -589,12 +597,24 @@ static const struct MenuAction MultichoiceList_UnusedSSTidal3[] =
     {gText_FarawayIsland},
     {gText_Exit},
 };
+//
+//static const struct MenuAction MultichoiceList_UnusedSSTidal4[] =
+//{
+//    {gText_SouthernIsland},
+//    {gText_BirthIsland},
+//    {gText_FarawayIsland},
+//    {gText_Exit},
+//};
 
 static const struct MenuAction MultichoiceList_UnusedSSTidal4[] =
 {
-    {gText_SouthernIsland},
-    {gText_BirthIsland},
-    {gText_FarawayIsland},
+    {gText_RGSTAnne},
+	{gText_RGViridianForest},
+    {gText_RGLavender},
+    {gText_RGPokeTower},
+	{gText_RGPokeMansion},
+	{gText_RGSilphCo},
+	{gText_RGRocketHideout},
     {gText_Exit},
 };
 
@@ -602,6 +622,9 @@ static const struct MenuAction MultichoiceList_Fossil[] =
 {
     {gText_ClawFossil},
     {gText_RootFossil},
+    {gText_HelixFossil},
+	{gText_DomeFossil},
+	{gText_OldAmber},
     {gText_Exit},
 };
 
@@ -835,7 +858,7 @@ static const struct MultichoiceListStruct sMultichoiceLists[] =
     [MULTI_GAME_CORNER_DOLLS]          = MULTICHOICE(MultichoiceList_GameCornerDolls),
     [MULTI_GAME_CORNER_COINS]          = MULTICHOICE(MultichoiceList_GameCornerCoins),
     [MULTI_HOWS_FISHING]               = MULTICHOICE(MultichoiceList_HowsFishing),
-    [MULTI_UNUSED_51]                  = MULTICHOICE(MultichoiceList_Exit),
+    [MULTI_UNUSED_51]                  = MULTICHOICE(MultichoiceList_FishingBook),
     [MULTI_SSTIDAL_SLATEPORT_WITH_BF]  = MULTICHOICE(MultichoiceList_SSTidalSlateportWithBF),
     [MULTI_SSTIDAL_BATTLE_FRONTIER]    = MULTICHOICE(MultichoiceList_SSTidalBattleFrontier),
     [MULTI_RIGHTLEFT]                  = MULTICHOICE(MultichoiceList_RightLeft),

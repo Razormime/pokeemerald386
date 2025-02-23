@@ -123,8 +123,9 @@ FortreeCity_Text_EveryoneHealthyAndLively:
 FortreeCity_Text_BugPokemonComeThroughWindow:
 	.string "Living on top of trees is okay.\p"
 	.string "But sometimes BUG POKéMON come in\n"
-	.string "through windows.\l"
-	.string "It can be really startling.$"
+	.string "through windows.\p"
+	.string "It can be really startling when\n"
+	.string "a YANMA interrupts breakfast!$"
 
 FortreeCity_Text_PokemonThatEvolveWhenTraded:
 	.string "There are POKéMON that evolve when\n"

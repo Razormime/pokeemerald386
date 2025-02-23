@@ -558,6 +558,10 @@ ShoalCave_LowTideIceRoom_EventScript_ItemTMHail::
 	finditem ITEM_TM_HAIL
 	end
 
+ShoalCave_LowTideIceRoom_EventScript_ItemHelixFossil::
+	finditem ITEM_HELIX_FOSSIL
+	end
+
 ShoalCave_LowTideIceRoom_EventScript_ItemNeverMeltIce::
 	finditem ITEM_NEVER_MELT_ICE
 	end
@@ -626,6 +630,11 @@ ArtisanCave_B1F_EventScript_ItemHPUp::
 	finditem ITEM_HP_UP
 	end
 
+ArtisanCave_B1F_EventScript_ItemMysticTicket::
+	finditem ITEM_MYSTIC_TICKET
+	setflag FLAG_ENABLE_SHIP_NAVEL_ROCK
+	end
+
 ArtisanCave_1F_EventScript_ItemCarbos::
 	finditem ITEM_CARBOS
 	end
@@ -656,4 +665,81 @@ MagmaHideout_4F_EventScript_ItemMaxRevive::
 
 MagmaHideout_3F_3R_EventScript_ItemEscapeRope::
 	finditem ITEM_ESCAPE_ROPE
+	end
+
+AbandonedShip_HiddenFloorRooms_EventScript_ItemOldSeaMap::
+	finditem ITEM_OLD_SEA_MAP
+	setflag FLAG_ENABLE_SHIP_FARAWAY_ISLAND
+	end
+
+GraniteCave_B3F_Item_Script_Dome_Fossil::
+	finditem ITEM_DOME_FOSSIL
+	end
+
+FieryPath2_Item_Script_Old_Amber::
+	finditem ITEM_OLD_AMBER
+	end
+
+AlteringCaveB3F_Item_Script_Escape_Rope::
+	finditem ITEM_ESCAPE_ROPE
+	end
+
+AlteringCaveB3F_Item_Script_Ultra_Ball::
+	finditem ITEM_ULTRA_BALL
+	end
+
+ShoalCave_LowTideLowerRoom_Item_Script_Deep_Sea_Scale::
+	finditem ITEM_DEEP_SEA_SCALE
+	end
+
+GraniteCave_B2F2_Item_Script_Deep_Sea_Tooth::
+	finditem ITEM_DEEP_SEA_TOOTH
+	end
+
+NewMauville_Inside_EventScript_ItemMetalCoat::
+	finditem ITEM_METAL_COAT
+	end
+
+MeteorFalls_StevensRoom_EventScript_MoonStone::
+	finditem ITEM_MOON_STONE
+	end
+
+JaggedPass2_EventScript_SunStone::
+	finditem ITEM_SUN_STONE
+	end
+
+FieryPath2_Item_Script_FireStone::
+	finditem ITEM_FIRE_STONE
+	end
+
+ShoalCave_LowTideInnerRoom_EventScript_KingsRock::
+	finditem ITEM_KINGS_ROCK
+	end
+
+AlteringCave_EventScript_LuckyEgg::
+	finditem ITEM_LUCKY_EGG
+	end
+
+AlteringCave_B1F_EventScript_KingsRock::
+	finditem ITEM_KINGS_ROCK
+	end
+
+AlteringCave_B2F_EventScript_RareCandy::
+	finditem ITEM_RARE_CANDY
+	end
+
+AlteringCave_B2F_EventScript_Carbos::
+	finditem ITEM_CARBOS
+	end
+
+AlteringCave_B2F_EventScript_PPMax::
+	finditem ITEM_PP_MAX
+	end
+
+AlteringCave_B2F_EventScript_Nugget::
+	finditem ITEM_NUGGET
+	end
+
+AlteringCave_B2F_EventScript_LuxuryBall::
+	finditem ITEM_LUXURY_BALL
 	end

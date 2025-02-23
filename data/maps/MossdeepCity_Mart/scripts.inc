@@ -4,6 +4,7 @@ MossdeepCity_Mart_MapScripts::
 MossdeepCity_Mart_EventScript_Clerk::
 	lock
 	faceplayer
+	goto_if_set FLAG_RECEIVED_TM_CALM_MIND, MossdeepCity_Mart_EventScript_Clerk2
 	message gText_HowMayIServeYou
 	waitmessage
 	pokemart MossdeepCity_Mart_Pokemart
@@ -22,7 +23,35 @@ MossdeepCity_Mart_Pokemart:
 	.2byte ITEM_MAX_REPEL
 	.2byte ITEM_X_ATTACK
 	.2byte ITEM_X_DEFEND
-	pokemartlistend
+	.2byte ITEM_NONE
+	release
+	end
+
+MossdeepCity_Mart_EventScript_Clerk2::
+	lock
+	faceplayer
+	message gText_HowMayIServeYou
+	waitmessage
+	pokemart MossdeepCity_Mart_Pokemart2
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+MossdeepCity_Mart_Pokemart2:
+	.2byte ITEM_TM04
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_NET_BALL
+	.2byte ITEM_DIVE_BALL
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_X_ATTACK
+	.2byte ITEM_X_DEFEND
+	.2byte ITEM_NONE
+	release
+	end
 
 MossdeepCity_Mart_EventScript_Woman::
 	msgbox MossdeepCity_Mart_Text_ReviveIsFantastic, MSGBOX_NPC

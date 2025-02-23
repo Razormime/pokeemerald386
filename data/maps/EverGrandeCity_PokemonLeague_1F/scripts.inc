@@ -31,6 +31,7 @@ EverGrandeCity_PokemonLeague_1F_EventScript_Clerk::
 	faceplayer
 	message gText_HowMayIServeYou
 	waitmessage
+	goto_if_set FLAG_IS_CHAMPION, EverGrandeCity_PokemonLeague_1F_EventScript_ClerkExpanded
 	pokemart EverGrandeCity_PokemonLeague_1F_Pokemart
 	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
 	release
@@ -45,7 +46,29 @@ EverGrandeCity_PokemonLeague_1F_Pokemart:
 	.2byte ITEM_FULL_HEAL
 	.2byte ITEM_REVIVE
 	.2byte ITEM_MAX_REPEL
-	pokemartlistend
+	.2byte ITEM_NONE
+	release
+	end
+
+EverGrandeCity_PokemonLeague_1F_EventScript_ClerkExpanded::
+	pokemart EverGrandeCity_PokemonLeague_1F_PokemartExpanded
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	release
+	end
+
+	.align 2
+EverGrandeCity_PokemonLeague_1F_PokemartExpanded:
+	.2byte ITEM_TM49
+	.2byte ITEM_ULTRA_BALL
+	.2byte ITEM_HYPER_POTION
+	.2byte ITEM_MAX_POTION
+	.2byte ITEM_FULL_RESTORE
+	.2byte ITEM_FULL_HEAL
+	.2byte ITEM_REVIVE
+	.2byte ITEM_MAX_REPEL
+	.2byte ITEM_NONE
+	release
+	end
 
 @ The door guards only check for FLAG_BADGE06_GET because Winonas badge is the only one that can be skipped
 @ Its assumed the player has the remaining badges

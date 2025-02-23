@@ -1187,7 +1187,7 @@ Route110_Text_IsabelRematchPostBattle:
 	.string "But I like to battle, too!$"
 
 Route110_Text_TimmyIntro:
-	.string "I found some cool POKéMON in the grass\n"
+	.string "I found some cool POKéMON in the area\n"
 	.string "around here!$"
 
 Route110_Text_TimmyDefeated:
@@ -1524,21 +1524,33 @@ Route112_Text_BricePostBattle:
 	.string "Hahahaha-hatchoo!$"
 
 Route112_Text_TrentIntro:
-	.string "My legs are solid from pounding up\n"
-	.string "and down the mountains.\p"
+	.string "My legs are solid from pounding\n"
+	.string "all throughout the cave here.\p"
 	.string "They're not going to buckle easily,\n"
 	.string "friend!$"
+//Route112_Text_TrentIntro:
+//	.string "My legs are solid from pounding up\n"
+//	.string "and down the mountains.\p"
+//	.string "They're not going to buckle easily,\n"
+//	.string "friend!$"
 
 Route112_Text_TrentDefeat:
 	.string "Ouch! My legs cramped up!$"
 
 Route112_Text_TrentPostBattle:
-	.string "Try hiking, and I mean really\n"
-	.string "pounding, on these mountain trails\l"
-	.string "with a heavy pack weighing dozens of\l"
-	.string "pounds.\p"
-	.string "That, my friend, will get your body\n"
-	.string "into serious shape.$"
+	.string "I've been really pounding through\n"
+	.string "this mountain cave with a heavy\l"
+	.string "pack weighing dozens of pounds,\l"
+	.string "searching for this here GRIMER!\p"
+	.string "That, my friend, really got my body\n"
+	.string "into serious shape!$"
+//Route112_Text_TrentPostBattle:
+//	.string "Try hiking, and I mean really\n"
+//	.string "pounding, on these mountain trails\l"
+//	.string "with a heavy pack weighing dozens of\l"
+//	.string "pounds.\p"
+//	.string "That, my friend, will get your body\n"
+//	.string "into serious shape.$"
 
 Route112_Text_TrentRegister:
 	.string "Ow, my legs have cramped up.\n"
@@ -1552,7 +1564,7 @@ Route112_Text_TrentRematchIntro:
 	.string "Power, I have in spades!$"
 
 Route112_Text_TrentRematchDefeat:
-	.string "I got trumped in power?$"
+	.string "I got trounced in power?$"
 
 Route112_Text_TrentRematchPostBattle:
 	.string "I hear there are some seriously tough\n"

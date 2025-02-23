@@ -1159,7 +1159,8 @@ const u16 gWeatherStartsStringIds[] =
     [WEATHER_SUNNY_CLOUDS]       = STRINGID_ITISRAINING,
     [WEATHER_SUNNY]              = STRINGID_ITISRAINING,
     [WEATHER_RAIN]               = STRINGID_ITISRAINING,
-    [WEATHER_SNOW]               = STRINGID_ITISRAINING,
+//    [WEATHER_SNOW]               = STRINGID_ITISRAINING,
+	[WEATHER_SNOW]               = STRINGID_STARTEDHAIL,
     [WEATHER_RAIN_THUNDERSTORM]  = STRINGID_ITISRAINING,
     [WEATHER_FOG_HORIZONTAL]     = STRINGID_ITISRAINING,
     [WEATHER_VOLCANIC_ASH]       = STRINGID_ITISRAINING,
@@ -2350,9 +2351,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                     toCpy = gStringVar2;
                 }
                 else
-                {
                     toCpy = gBattleTextBuff2;
-                }
                 break;
             case B_TXT_BUFF3:
                 if (gBattleTextBuff3[0] == B_BUFF_PLACEHOLDER_BEGIN)
@@ -2361,9 +2360,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                     toCpy = gStringVar3;
                 }
                 else
-                {
                     toCpy = gBattleTextBuff3;
-                }
                 break;
             case B_TXT_COPY_VAR_1:
                 toCpy = gStringVar1;
@@ -2490,9 +2487,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst)
                                 toCpy = text;
                             }
                             else
-                            {
                                 toCpy = sText_EnigmaBerry;
-                            }
                         }
                     }
                     else

@@ -45,11 +45,42 @@ BattleFrontier_Lounge6_EventScript_TradeCompleted::
 	release
 	end
 
+BattleFrontier_Lounge6_EventScript_Gifter::
+	lock
+	faceplayer
+	goto_if_set GOT_BOTH_TENTS, BattleFrontier_Lounge6_EventScript_Gifter_Got_Both_Tents
+	goto_if_set CHOSE_RED_TENT, BattleFrontier_Lounge6_EventScript_Gifter_Get_Blue_Tent
+	goto_if_set CHOSE_BLUE_TENT, BattleFrontier_Lounge6_EventScript_Gifter_Get_Red_Tent
+	msgbox HaveYouDefeatedTrickMasterText, MSGBOX_DEFAULT
+	release
+	end
+
+BattleFrontier_Lounge6_EventScript_Gifter_Get_Blue_Tent::
+	msgbox DefeatedTrickMasterText, MSGBOX_DEFAULT
+	givedecoration DECOR_BLUE_TENT
+	setflag GOT_BOTH_TENTS
+	msgbox DefeatedTrickMasterText2, MSGBOX_DEFAULT
+	release
+	end
+
+BattleFrontier_Lounge6_EventScript_Gifter_Get_Red_Tent::
+	msgbox DefeatedTrickMasterText, MSGBOX_DEFAULT
+	givedecoration DECOR_RED_TENT
+	setflag GOT_BOTH_TENTS
+	msgbox DefeatedTrickMasterText2, MSGBOX_DEFAULT
+	release
+	end
+
+BattleFrontier_Lounge6_EventScript_Gifter_Got_Both_Tents:
+	msgbox DefeatedTrickMasterText2, MSGBOX_DEFAULT
+	release
+	end
+
 BattleFrontier_Lounge6_Text_WouldYouLikeToTrade:
 	.string "My POKéMON is a {STR_VAR_2}.\n"
 	.string "Do you know it?\l"
-	.string "It's quite cute and rather nice.\p"
-	.string "This little one, I could trade with\n"
+	.string "It's quite clever and rather nice.\p"
+	.string "This smart one, I could trade with\n"
 	.string "pride!\p"
 	.string "Would you like to trade me a {STR_VAR_1}\n"
 	.string "for my {STR_VAR_2}?$"
@@ -73,5 +104,39 @@ BattleFrontier_Lounge6_Text_WellThatsFineToo:
 
 BattleFrontier_Lounge6_Text_SkittySoMuchCuterThanImagined:
 	.string "Giggle!\n"
-	.string "A SKITTY is so much cuter than I had\l"
-	.string "imagined. I'm delighted!$"
+	.string "A HARIYAMA is so much cuter than I\l"
+	.string "had imagined. I'm delighted!$"
+
+HaveYouDefeatedTrickMasterText:
+	.string "Your POKéMON look pretty clever.\n"
+	.string "But how about you?\p"
+	.string "Do you know the The TRICK MASTER?\n"
+	.string "He runs The TRICK HOUSE just south\l"
+	.string "of MAUVILLE.\p"
+	.string "I'm far too clever for his tricks\n"
+	.string "and defeated all his puzzles!\p"
+	.string "I bet you couldn't do it in a\n"
+	.string "million years! haha!\p"
+	.string "What!? you say you can? haha!\n"
+	.string "Yeah right! if you ever do it,\l"
+	.string "I'll give you the prize I got\l"
+	.string "from him! haha!$"
+
+DefeatedTrickMasterText:
+	.string "Your POKéMON look pretty clever.\n"
+	.string "But how about you?\p"
+	.string "Do you know the The TRICK MASTER?\n"
+	.string "He runs The TRICK HOUSE just south\l"
+	.string "of MAUVILLE.\p"
+	.string "I'm far too clever for his tricks\n"
+	.string "and defeated all his puzzles!\p"
+	.string "I bet you couldn't do it in a\n"
+	.string "million years! haha!\p"
+	.string "What!? you really did it!?\n"
+	.string "… … … …\p"
+	.string "Well, I guess I owe you this…$"
+
+DefeatedTrickMasterText2:
+	.string "I've learned a valuable lesson\n"
+	.string "today…\p"
+	.string "It's not nice to doubt people.$"

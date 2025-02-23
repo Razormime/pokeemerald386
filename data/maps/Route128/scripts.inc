@@ -245,6 +245,13 @@ Route128_EventScript_Carlee::
 	msgbox Route128_Text_CarleePostBattle, MSGBOX_AUTOCLOSE
 	end
 
+Route128_EventScript_HeartScaleWoman::
+	lock
+	faceplayer
+	msgbox HeartScalesComeBackText, MSGBOX_NPC
+	release
+	end
+
 Route128_Text_ArchieWhatHappened:
 	.string "ARCHIE: What happened…\n"
 	.string "What is this wretched scene…\p"
@@ -304,3 +311,11 @@ Route128_Text_StevenImGoingToSootopolis:
 	.string "Okay.\n"
 	.string "I'm going to SOOTOPOLIS.$"
 
+HeartScalesComeBackText:
+	.string "Why am I checking the sand?\n"
+	.string "I want to find a HEART SCALE!\p"
+	.string "If you find one, it's supposed to bring\n"
+	.string "you good luck in love, so I'm trying to\l"
+	.string "collect as many as I can.\p"
+	.string "No matter how many I collect here,\n"
+	.string "ROUTE 128 always seems to bring more…$"

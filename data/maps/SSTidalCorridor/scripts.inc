@@ -194,6 +194,19 @@ SSTidalCorridor_EventScript_ScottScene::
 	waitmovement 0
 	msgbox SSTidalCorridor_Text_ScottBattleFrontierInvite, MSGBOX_DEFAULT
 	closemessage
+//	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterDown
+//	waitmovement 0
+//	playse SE_PIN
+//	applymovement LOCALID_SCOTT, Common_Movement_ExclamationMark
+//	waitmovement 0
+//	applymovement LOCALID_SCOTT, Common_Movement_Delay48
+//	waitmovement 0
+//	applymovement LOCALID_SCOTT, Common_Movement_WalkInPlaceFasterLeft
+//	waitmovement 0
+//	msgbox SSTidalCorridor_Text_ScottBattleFrontierInvite2, MSGBOX_DEFAULT
+//	giveitem ITEM_EON_TICKET
+//	setflag FLAG_ENABLE_SHIP_SOUTHERN_ISLAND
+//	closemessage
 	applymovement OBJ_EVENT_ID_PLAYER, SSTidalCorridor_Movement_PlayerWatchScottExit
 	applymovement LOCALID_SAILOR, SSTidalCorridor_Movement_SailorMoveForScott
 	applymovement LOCALID_SCOTT, SSTidalCorridor_Movement_ScottExit
@@ -272,6 +285,13 @@ SSTidalCorridor_Text_ScottBattleFrontierInvite:
 	.string "the BATTLE FRONTIER.\p"
 	.string "Okay, {PLAYER}{KUN}, I'll be waiting for you\n"
 	.string "at the BATTLE FRONTIER!$"
+
+SSTidalCorridor_Text_ScottBattleFrontierInvite2:
+	.string "Whoops! I almost forgot about\n"
+	.string "this delivery!\p"
+	.string "I was asked to pass this\n"
+	.string "along to you, so here you are!\p"
+	.string "See you soon, {PLAYER}{KUN}!$"
 
 SSTidal_Text_FastCurrentsHopeYouEnjoyVoyage:
 	.string "This ferry is built to plow through\n"

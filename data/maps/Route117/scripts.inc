@@ -22,8 +22,41 @@ Route117_EventScript_LittleBoy::
 	msgbox Route117_Text_AirIsTastyHere, MSGBOX_NPC
 	end
 
-Route117_EventScript_Girl::
-	msgbox Route117_Text_DayCarePokemonHadNewMove, MSGBOX_NPC
+//Route117_EventScript_Girl::
+//	msgbox Route117_Text_DayCarePokemonHadNewMove, MSGBOX_NPC
+//	end
+
+Route117_EventScript_EggGirl::
+	lock
+	faceplayer
+	goto_if_set FLAG_RECEIVED_TOGEPI_EGG, Route117_EventScript_ReceivedTogepiEgg
+	msgbox Route117_Text_HaveTogepiEggWillYouTakeIt, MSGBOX_YESNO
+	goto_if_eq VAR_RESULT, NO, Route117_EventScript_DeclineTogepiEgg
+	getpartysize
+	goto_if_eq VAR_RESULT, PARTY_SIZE, Route117_EventScript_NoRoomForTogepiEgg
+	msgbox Route117_Text_ThanksForTakingTheEgg, MSGBOX_DEFAULT
+	setflag FLAG_RECEIVED_TOGEPI_EGG
+	playfanfare MUS_OBTAIN_ITEM
+	message Route117_Text_ReceivedTogepiEgg
+	waitfanfare
+	giveegg SPECIES_TOGEPI
+	msgbox Route117_Text_ThanksForTakingTheEggLater, MSGBOX_DEFAULT
+	release
+	end
+
+Route117_EventScript_ReceivedTogepiEgg::
+	msgbox Route117_Text_ThanksForTakingTheEggLater, MSGBOX_DEFAULT
+	release
+	end
+
+Route117_EventScript_NoRoomForTogepiEgg::
+	msgbox Route117_Text_NoRoomForTogepiEgg, MSGBOX_DEFAULT
+	release
+	end
+
+Route117_EventScript_DeclineTogepiEgg::
+	msgbox Route117_Text_DeclinedEgg, MSGBOX_DEFAULT
+	release
 	end
 
 Route117_EventScript_RouteSignVerdanturf::
@@ -205,4 +238,33 @@ Route117_Text_RouteSignMauville:
 Route117_Text_DayCareSign:
 	.string "POKéMON DAY CARE\n"
 	.string "“Let us raise your POKéMON.”$"
+
+Route117_Text_HaveTogepiEggWillYouTakeIt:
+	.string "I left my POKéMON at the DAY CARE so\n"
+	.string "they could learn some new moves…\p"
+	.string "But when I came back, they had a new\n"
+	.string "EGG instead! I was really surprised!\p"
+	.string "Would you possibly be able to help\n"
+	.string "me by raising this EGG?$"
+
+Route117_Text_ThanksForTakingTheEgg:
+	.string "Thank you! I don't think I could\n"
+	.string "have trained another POKéMON!$"
+
+Route117_Text_DeclinedEgg:
+	.string "Oh dear, I wonder if I'll be able to\n"
+	.string "train another POKéMON by myself…$"
+
+Route117_Text_NoRoomForTogepiEgg:
+	.string "You have no room for this EGG…\n"
+	.string "Could you make some room for it?$"
+
+Route117_Text_ReceivedTogepiEgg:
+	.string "{PLAYER} adopted the EGG.$"
+
+Route117_Text_ThanksForTakingTheEggLater:
+	.string "All POKéMON deserve a chance to\n"
+	.string "thrive and grow strong.\p"
+	.string "Thank you for helping with that one.\n"
+	.string "I couldn't have done it alone.$"
 

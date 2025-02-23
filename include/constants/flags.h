@@ -2,7 +2,6 @@
 #define GUARD_CONSTANTS_FLAGS_H
 
 #include "constants/opponents.h"
-#include "constants/rematches.h"
 
 // Temporary Flags
 // These temporary flags are are cleared every time a map is loaded. They are used
@@ -184,14 +183,14 @@
 #define FLAG_CUTE_PAINTING_MADE              0xA2
 #define FLAG_SMART_PAINTING_MADE             0xA3
 #define FLAG_TOUGH_PAINTING_MADE             0xA4
-#define FLAG_RECEIVED_TM_ROCK_TOMB           0xA5
-#define FLAG_RECEIVED_TM_BULK_UP             0xA6
-#define FLAG_RECEIVED_TM_SHOCK_WAVE          0xA7
-#define FLAG_RECEIVED_TM_OVERHEAT            0xA8
-#define FLAG_RECEIVED_TM_FACADE              0xA9
-#define FLAG_RECEIVED_TM_AERIAL_ACE          0xAA
-#define FLAG_RECEIVED_TM_CALM_MIND           0xAB
-#define FLAG_RECEIVED_TM_WATER_PULSE         0xAC
+#define FLAG_RECEIVED_TM_ROCK_TOMB           0xA5 //TM39
+#define FLAG_RECEIVED_TM_BULK_UP             0xA6 //TM08
+#define FLAG_RECEIVED_TM_SHOCK_WAVE          0xA7 //TM34
+#define FLAG_RECEIVED_TM_OVERHEAT            0xA8 //TM50
+#define FLAG_RECEIVED_TM_FACADE              0xA9 //TM42
+#define FLAG_RECEIVED_TM_AERIAL_ACE          0xAA //TM40
+#define FLAG_RECEIVED_TM_CALM_MIND           0xAB //TM04
+#define FLAG_RECEIVED_TM_WATER_PULSE         0xAC //TM03
 #define FLAG_HIDE_SECRET_BASE_TRAINER        0xAD
 #define FLAG_DECORATION_1                    0xAE
 #define FLAG_DECORATION_2                    0xAF
@@ -376,89 +375,86 @@
 #define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR  0x15A
 #define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR 0x15B
 
-// Flags for whether a rematchable trainer has been registered in the player's Match Call.
-// Most are used implicitly by adding their REMATCH_* id to TRAINER_REGISTERED_FLAGS_START.
-// Some Match Call entries (like those for gym leaders, Wally, and all non-trainer NPCs like Prof. Birch)
-// have their own separate flag that needs to be set to be enabled; see src/pokenav_match_call_data.c
-#define TRAINER_REGISTERED_FLAGS_START       0x15C
-#define FLAG_REGISTERED_ROSE                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_ROSE)
-#define FLAG_REGISTERED_ANDRES               (TRAINER_REGISTERED_FLAGS_START + REMATCH_ANDRES)
-#define FLAG_REGISTERED_DUSTY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_DUSTY)
-#define FLAG_REGISTERED_LOLA                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_LOLA)
-#define FLAG_REGISTERED_RICKY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_RICKY)
-#define FLAG_REGISTERED_LILA_AND_ROY         (TRAINER_REGISTERED_FLAGS_START + REMATCH_LILA_AND_ROY)
-#define FLAG_REGISTERED_CRISTIN              (TRAINER_REGISTERED_FLAGS_START + REMATCH_CRISTIN)
-#define FLAG_REGISTERED_BROOKE               (TRAINER_REGISTERED_FLAGS_START + REMATCH_BROOKE)
-#define FLAG_REGISTERED_WILTON               (TRAINER_REGISTERED_FLAGS_START + REMATCH_WILTON)
-#define FLAG_REGISTERED_VALERIE              (TRAINER_REGISTERED_FLAGS_START + REMATCH_VALERIE)
-#define FLAG_REGISTERED_CINDY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_CINDY)
-#define FLAG_REGISTERED_THALIA               (TRAINER_REGISTERED_FLAGS_START + REMATCH_THALIA)
-#define FLAG_REGISTERED_JESSICA              (TRAINER_REGISTERED_FLAGS_START + REMATCH_JESSICA)
-#define FLAG_REGISTERED_WINSTON              (TRAINER_REGISTERED_FLAGS_START + REMATCH_WINSTON)
-#define FLAG_REGISTERED_STEVE                (TRAINER_REGISTERED_FLAGS_START + REMATCH_STEVE)
-#define FLAG_REGISTERED_TONY                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_TONY)
-#define FLAG_REGISTERED_NOB                  (TRAINER_REGISTERED_FLAGS_START + REMATCH_NOB)
-#define FLAG_REGISTERED_KOJI                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_KOJI)
-#define FLAG_REGISTERED_FERNANDO             (TRAINER_REGISTERED_FLAGS_START + REMATCH_FERNANDO)
-#define FLAG_REGISTERED_DALTON               (TRAINER_REGISTERED_FLAGS_START + REMATCH_DALTON)
-#define FLAG_REGISTERED_BERNIE               (TRAINER_REGISTERED_FLAGS_START + REMATCH_BERNIE)
-#define FLAG_REGISTERED_ETHAN                (TRAINER_REGISTERED_FLAGS_START + REMATCH_ETHAN)
-#define FLAG_REGISTERED_JOHN_AND_JAY         (TRAINER_REGISTERED_FLAGS_START + REMATCH_JOHN_AND_JAY)
-#define FLAG_REGISTERED_JEFFREY              (TRAINER_REGISTERED_FLAGS_START + REMATCH_JEFFREY)
-#define FLAG_REGISTERED_CAMERON              (TRAINER_REGISTERED_FLAGS_START + REMATCH_CAMERON)
-#define FLAG_REGISTERED_JACKI                (TRAINER_REGISTERED_FLAGS_START + REMATCH_JACKI)
-#define FLAG_REGISTERED_WALTER               (TRAINER_REGISTERED_FLAGS_START + REMATCH_WALTER)
-#define FLAG_REGISTERED_KAREN                (TRAINER_REGISTERED_FLAGS_START + REMATCH_KAREN)
-#define FLAG_REGISTERED_JERRY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_JERRY)
-#define FLAG_REGISTERED_ANNA_AND_MEG         (TRAINER_REGISTERED_FLAGS_START + REMATCH_ANNA_AND_MEG)
-#define FLAG_REGISTERED_ISABEL               (TRAINER_REGISTERED_FLAGS_START + REMATCH_ISABEL)
-#define FLAG_REGISTERED_MIGUEL               (TRAINER_REGISTERED_FLAGS_START + REMATCH_MIGUEL)
-#define FLAG_REGISTERED_TIMOTHY              (TRAINER_REGISTERED_FLAGS_START + REMATCH_TIMOTHY)
-#define FLAG_REGISTERED_SHELBY               (TRAINER_REGISTERED_FLAGS_START + REMATCH_SHELBY)
-#define FLAG_REGISTERED_CALVIN               (TRAINER_REGISTERED_FLAGS_START + REMATCH_CALVIN)
-#define FLAG_REGISTERED_ELLIOT               (TRAINER_REGISTERED_FLAGS_START + REMATCH_ELLIOT)
-#define FLAG_REGISTERED_ISAIAH               (TRAINER_REGISTERED_FLAGS_START + REMATCH_ISAIAH)
-#define FLAG_REGISTERED_MARIA                (TRAINER_REGISTERED_FLAGS_START + REMATCH_MARIA)
-#define FLAG_REGISTERED_ABIGAIL              (TRAINER_REGISTERED_FLAGS_START + REMATCH_ABIGAIL)
-#define FLAG_REGISTERED_DYLAN                (TRAINER_REGISTERED_FLAGS_START + REMATCH_DYLAN)
-#define FLAG_REGISTERED_KATELYN              (TRAINER_REGISTERED_FLAGS_START + REMATCH_KATELYN)
-#define FLAG_REGISTERED_BENJAMIN             (TRAINER_REGISTERED_FLAGS_START + REMATCH_BENJAMIN)
-#define FLAG_REGISTERED_PABLO                (TRAINER_REGISTERED_FLAGS_START + REMATCH_PABLO)
-#define FLAG_REGISTERED_NICOLAS              (TRAINER_REGISTERED_FLAGS_START + REMATCH_NICOLAS)
-#define FLAG_REGISTERED_ROBERT               (TRAINER_REGISTERED_FLAGS_START + REMATCH_ROBERT)
-#define FLAG_REGISTERED_LAO                  (TRAINER_REGISTERED_FLAGS_START + REMATCH_LAO)
-#define FLAG_REGISTERED_CYNDY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_CYNDY)
-#define FLAG_REGISTERED_MADELINE             (TRAINER_REGISTERED_FLAGS_START + REMATCH_MADELINE)
-#define FLAG_REGISTERED_JENNY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_JENNY)
-#define FLAG_REGISTERED_DIANA                (TRAINER_REGISTERED_FLAGS_START + REMATCH_DIANA)
-#define FLAG_REGISTERED_AMY_AND_LIV          (TRAINER_REGISTERED_FLAGS_START + REMATCH_AMY_AND_LIV)
-#define FLAG_REGISTERED_ERNEST               (TRAINER_REGISTERED_FLAGS_START + REMATCH_ERNEST)
-#define FLAG_REGISTERED_CORY                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_CORY)
-#define FLAG_REGISTERED_EDWIN                (TRAINER_REGISTERED_FLAGS_START + REMATCH_EDWIN)
-#define FLAG_REGISTERED_LYDIA                (TRAINER_REGISTERED_FLAGS_START + REMATCH_LYDIA)
-#define FLAG_REGISTERED_ISAAC                (TRAINER_REGISTERED_FLAGS_START + REMATCH_ISAAC)
-#define FLAG_REGISTERED_GABRIELLE            (TRAINER_REGISTERED_FLAGS_START + REMATCH_GABRIELLE)
-#define FLAG_REGISTERED_CATHERINE            (TRAINER_REGISTERED_FLAGS_START + REMATCH_CATHERINE)
-#define FLAG_REGISTERED_JACKSON              (TRAINER_REGISTERED_FLAGS_START + REMATCH_JACKSON)
-#define FLAG_REGISTERED_HALEY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_HALEY)
-#define FLAG_REGISTERED_JAMES                (TRAINER_REGISTERED_FLAGS_START + REMATCH_JAMES)
-#define FLAG_REGISTERED_TRENT                (TRAINER_REGISTERED_FLAGS_START + REMATCH_TRENT)
-#define FLAG_REGISTERED_SAWYER               (TRAINER_REGISTERED_FLAGS_START + REMATCH_SAWYER)
-#define FLAG_REGISTERED_KIRA_AND_DAN         (TRAINER_REGISTERED_FLAGS_START + REMATCH_KIRA_AND_DAN)
-#define FLAG_REGISTERED_WALLY                (TRAINER_REGISTERED_FLAGS_START + REMATCH_WALLY)
-#define FLAG_REGISTERED_ROXANNE              (TRAINER_REGISTERED_FLAGS_START + REMATCH_ROXANNE)
-#define FLAG_REGISTERED_BRAWLY               (TRAINER_REGISTERED_FLAGS_START + REMATCH_BRAWLY)
-#define FLAG_REGISTERED_WATTSON              (TRAINER_REGISTERED_FLAGS_START + REMATCH_WATTSON)
-#define FLAG_REGISTERED_FLANNERY             (TRAINER_REGISTERED_FLAGS_START + REMATCH_FLANNERY)
-#define FLAG_REGISTERED_NORMAN               (TRAINER_REGISTERED_FLAGS_START + REMATCH_NORMAN)
-#define FLAG_REGISTERED_WINONA               (TRAINER_REGISTERED_FLAGS_START + REMATCH_WINONA)
-#define FLAG_REGISTERED_TATE_AND_LIZA        (TRAINER_REGISTERED_FLAGS_START + REMATCH_TATE_AND_LIZA)
-#define FLAG_REGISTERED_JUAN                 (TRAINER_REGISTERED_FLAGS_START + REMATCH_JUAN)
-#define FLAG_REGISTERED_SIDNEY               (TRAINER_REGISTERED_FLAGS_START + REMATCH_SIDNEY)
-#define FLAG_REGISTERED_PHOEBE               (TRAINER_REGISTERED_FLAGS_START + REMATCH_PHOEBE)
-#define FLAG_REGISTERED_GLACIA               (TRAINER_REGISTERED_FLAGS_START + REMATCH_GLACIA)
-#define FLAG_REGISTERED_DRAKE                (TRAINER_REGISTERED_FLAGS_START + REMATCH_DRAKE)
-#define FLAG_REGISTERED_WALLACE              (TRAINER_REGISTERED_FLAGS_START + REMATCH_WALLACE)
+// Trainer Rematch Flags
+#define FLAG_MATCH_CALL_REGISTERED           0x15C
+#define FLAG_REMATCH_ROSE                    0x15D
+#define FLAG_REMATCH_ANDRES                  0x15E
+#define FLAG_REMATCH_DUSTY                   0x15F
+#define FLAG_REMATCH_LOLA                    0x160
+#define FLAG_REMATCH_RICKY                   0x161
+#define FLAG_REMATCH_LILA_AND_ROY            0x162
+#define FLAG_REMATCH_CRISTIN                 0x163
+#define FLAG_REMATCH_BROOKE                  0x164
+#define FLAG_REMATCH_WILTON                  0x165
+#define FLAG_REMATCH_VALERIE                 0x166
+#define FLAG_REMATCH_CINDY                   0x167
+#define FLAG_REMATCH_THALIA                  0x168
+#define FLAG_REMATCH_JESSICA                 0x169
+#define FLAG_REMATCH_WINSTON                 0x16A
+#define FLAG_REMATCH_STEVE                   0x16B
+#define FLAG_REMATCH_TONY                    0x16C
+#define FLAG_REMATCH_NOB                     0x16D
+#define FLAG_REMATCH_KOJI                    0x16E
+#define FLAG_REMATCH_FERNANDO                0x16F
+#define FLAG_REMATCH_DALTON                  0x170
+#define FLAG_REMATCH_BERNIE                  0x171
+#define FLAG_REMATCH_ETHAN                   0x172
+#define FLAG_REMATCH_JOHN_AND_JAY            0x173
+#define FLAG_REMATCH_JEFFREY                 0x174
+#define FLAG_REMATCH_CAMERON                 0x175
+#define FLAG_REMATCH_JACKI                   0x176
+#define FLAG_REMATCH_WALTER                  0x177
+#define FLAG_REMATCH_KAREN                   0x178
+#define FLAG_REMATCH_JERRY                   0x179
+#define FLAG_REMATCH_ANNA_AND_MEG            0x17A
+#define FLAG_REMATCH_ISABEL                  0x17B
+#define FLAG_REMATCH_MIGUEL                  0x17C
+#define FLAG_REMATCH_TIMOTHY                 0x17D
+#define FLAG_REMATCH_SHELBY                  0x17E
+#define FLAG_REMATCH_CALVIN                  0x17F
+#define FLAG_REMATCH_ELLIOT                  0x180
+#define FLAG_REMATCH_ISAIAH                  0x181
+#define FLAG_REMATCH_MARIA                   0x182
+#define FLAG_REMATCH_ABIGAIL                 0x183
+#define FLAG_REMATCH_DYLAN                   0x184
+#define FLAG_REMATCH_KATELYN                 0x185
+#define FLAG_REMATCH_BENJAMIN                0x186
+#define FLAG_REMATCH_PABLO                   0x187
+#define FLAG_REMATCH_NICOLAS                 0x188
+#define FLAG_REMATCH_ROBERT                  0x189
+#define FLAG_REMATCH_LAO                     0x18A
+#define FLAG_REMATCH_CYNDY                   0x18B
+#define FLAG_REMATCH_MADELINE                0x18C
+#define FLAG_REMATCH_JENNY                   0x18D
+#define FLAG_REMATCH_DIANA                   0x18E
+#define FLAG_REMATCH_AMY_AND_LIV             0x18F
+#define FLAG_REMATCH_ERNEST                  0x190
+#define FLAG_REMATCH_CORY                    0x191
+#define FLAG_REMATCH_EDWIN                   0x192
+#define FLAG_REMATCH_LYDIA                   0x193
+#define FLAG_REMATCH_ISAAC                   0x194
+#define FLAG_REMATCH_GABRIELLE               0x195
+#define FLAG_REMATCH_CATHERINE               0x196
+#define FLAG_REMATCH_JACKSON                 0x197
+#define FLAG_REMATCH_HALEY                   0x198
+#define FLAG_REMATCH_JAMES                   0x199
+#define FLAG_REMATCH_TRENT                   0x19A
+#define FLAG_REMATCH_SAWYER                  0x19B
+#define FLAG_REMATCH_KIRA_AND_DAN            0x19C
+#define FLAG_REMATCH_WALLY                   0x19D
+#define FLAG_REMATCH_ROXANNE                 0x19E
+#define FLAG_REMATCH_BRAWLY                  0x19F
+#define FLAG_REMATCH_WATTSON                 0x1A0
+#define FLAG_REMATCH_FLANNERY                0x1A1
+#define FLAG_REMATCH_NORMAN                  0x1A2
+#define FLAG_REMATCH_WINONA                  0x1A3
+#define FLAG_REMATCH_TATE_AND_LIZA           0x1A4
+// Note: FLAG_REMATCH_JUAN is handled by FLAG_ENABLE_JUAN_MATCH_CALL instead.
+#define FLAG_REMATCH_SIDNEY                  0x1A5
+#define FLAG_REMATCH_PHOEBE                  0x1A6
+#define FLAG_REMATCH_GLACIA                  0x1A7
+#define FLAG_REMATCH_DRAKE                   0x1A8
+#define FLAG_REMATCH_WALLACE                 0x1A9
 
 #define FLAG_UNUSED_0x1AA                    0x1AA // Unused Flag
 #define FLAG_UNUSED_0x1AB                    0x1AB // Unused Flag
@@ -919,7 +915,7 @@
 #define FLAG_HIDE_LITTLEROOT_TOWN_FAT_MAN                           0x364
 #define FLAG_HIDE_SLATEPORT_CITY_STERNS_SHIPYARD_MR_BRINEY          0x365
 #define FLAG_HIDE_LANETTES_HOUSE_LANETTE                            0x366
-#define FLAG_HIDE_FALLARBOR_POKEMON_CENTER_LANETTE                  0x367
+#define FLAG_HIDE_FALLORBOR_POKEMON_CENTER_LANETTE                  0x367
 #define FLAG_HIDE_TRICK_HOUSE_ENTRANCE_MAN                          0x368
 #define FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER_REPLACEMENT    0x369
 #define FLAG_HIDE_DESERT_UNDERPASS_FOSSIL                           0x36A
@@ -1125,7 +1121,7 @@
 #define FLAG_ITEM_AQUA_HIDEOUT_B2F_NEST_BALL                        0x430
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_MAX_POTION                       0x431
 #define FLAG_ITEM_MT_PYRE_EXTERIOR_TM_SKILL_SWAP                    0x432
-#define FLAG_ITEM_NEW_MAUVILLE_ULTRA_BALL                           0x433
+#define FLAG_ITEM_NEW_MAUVILLE_ULTRA_BALL                           0x433//note
 #define FLAG_ITEM_NEW_MAUVILLE_ESCAPE_ROPE                          0x434
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_6_LUXURY_BALL    0x435
 #define FLAG_ITEM_ABANDONED_SHIP_HIDDEN_FLOOR_ROOM_2_SCANNER        0x436
@@ -1222,87 +1218,87 @@
 #define FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET                     0x491
 #define FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL                  0x492
 
-#define FLAG_UNUSED_0x493                                           0x493 // Unused Flag
-#define FLAG_UNUSED_0x494                                           0x494 // Unused Flag
-#define FLAG_UNUSED_0x495                                           0x495 // Unused Flag
-#define FLAG_UNUSED_0x496                                           0x496 // Unused Flag
-#define FLAG_UNUSED_0x497                                           0x497 // Unused Flag
-#define FLAG_UNUSED_0x498                                           0x498 // Unused Flag
-#define FLAG_UNUSED_0x499                                           0x499 // Unused Flag
-#define FLAG_UNUSED_0x49A                                           0x49A // Unused Flag
-#define FLAG_UNUSED_0x49B                                           0x49B // Unused Flag
-#define FLAG_UNUSED_0x49C                                           0x49C // Unused Flag
-#define FLAG_UNUSED_0x49D                                           0x49D // Unused Flag
-#define FLAG_UNUSED_0x49E                                           0x49E // Unused Flag
-#define FLAG_UNUSED_0x49F                                           0x49F // Unused Flag
-#define FLAG_UNUSED_0x4A0                                           0x4A0 // Unused Flag
-#define FLAG_UNUSED_0x4A1                                           0x4A1 // Unused Flag
-#define FLAG_UNUSED_0x4A2                                           0x4A2 // Unused Flag
-#define FLAG_UNUSED_0x4A3                                           0x4A3 // Unused Flag
-#define FLAG_UNUSED_0x4A4                                           0x4A4 // Unused Flag
-#define FLAG_UNUSED_0x4A5                                           0x4A5 // Unused Flag
-#define FLAG_UNUSED_0x4A6                                           0x4A6 // Unused Flag
-#define FLAG_UNUSED_0x4A7                                           0x4A7 // Unused Flag
-#define FLAG_UNUSED_0x4A8                                           0x4A8 // Unused Flag
-#define FLAG_UNUSED_0x4A9                                           0x4A9 // Unused Flag
-#define FLAG_UNUSED_0x4AA                                           0x4AA // Unused Flag
-#define FLAG_UNUSED_0x4AB                                           0x4AB // Unused Flag
-#define FLAG_UNUSED_0x4AC                                           0x4AC // Unused Flag
-#define FLAG_UNUSED_0x4AD                                           0x4AD // Unused Flag
-#define FLAG_UNUSED_0x4AE                                           0x4AE // Unused Flag
-#define FLAG_UNUSED_0x4AF                                           0x4AF // Unused Flag
-#define FLAG_UNUSED_0x4B0                                           0x4B0 // Unused Flag
-#define FLAG_UNUSED_0x4B1                                           0x4B1 // Unused Flag
-#define FLAG_UNUSED_0x4B2                                           0x4B2 // Unused Flag
-#define FLAG_UNUSED_0x4B3                                           0x4B3 // Unused Flag
-#define FLAG_UNUSED_0x4B4                                           0x4B4 // Unused Flag
-#define FLAG_UNUSED_0x4B5                                           0x4B5 // Unused Flag
-#define FLAG_UNUSED_0x4B6                                           0x4B6 // Unused Flag
-#define FLAG_UNUSED_0x4B7                                           0x4B7 // Unused Flag
-#define FLAG_UNUSED_0x4B8                                           0x4B8 // Unused Flag
-#define FLAG_UNUSED_0x4B9                                           0x4B9 // Unused Flag
-#define FLAG_UNUSED_0x4BA                                           0x4BA // Unused Flag
-#define FLAG_UNUSED_0x4BB                                           0x4BB // Unused Flag
-#define FLAG_UNUSED_0x4BC                                           0x4BC // Unused Flag
-#define FLAG_UNUSED_0x4BD                                           0x4BD // Unused Flag
-#define FLAG_UNUSED_0x4BE                                           0x4BE // Unused Flag
-#define FLAG_UNUSED_0x4BF                                           0x4BF // Unused Flag
-#define FLAG_UNUSED_0x4C0                                           0x4C0 // Unused Flag
-#define FLAG_UNUSED_0x4C1                                           0x4C1 // Unused Flag
-#define FLAG_UNUSED_0x4C2                                           0x4C2 // Unused Flag
-#define FLAG_UNUSED_0x4C3                                           0x4C3 // Unused Flag
-#define FLAG_UNUSED_0x4C4                                           0x4C4 // Unused Flag
-#define FLAG_UNUSED_0x4C5                                           0x4C5 // Unused Flag
-#define FLAG_UNUSED_0x4C6                                           0x4C6 // Unused Flag
-#define FLAG_UNUSED_0x4C7                                           0x4C7 // Unused Flag
-#define FLAG_UNUSED_0x4C8                                           0x4C8 // Unused Flag
-#define FLAG_UNUSED_0x4C9                                           0x4C9 // Unused Flag
-#define FLAG_UNUSED_0x4CA                                           0x4CA // Unused Flag
-#define FLAG_UNUSED_0x4CB                                           0x4CB // Unused Flag
-#define FLAG_UNUSED_0x4CC                                           0x4CC // Unused Flag
-#define FLAG_UNUSED_0x4CD                                           0x4CD // Unused Flag
-#define FLAG_UNUSED_0x4CE                                           0x4CE // Unused Flag
-#define FLAG_UNUSED_0x4CF                                           0x4CF // Unused Flag
-#define FLAG_UNUSED_0x4D0                                           0x4D0 // Unused Flag
-#define FLAG_UNUSED_0x4D1                                           0x4D1 // Unused Flag
-#define FLAG_UNUSED_0x4D2                                           0x4D2 // Unused Flag
-#define FLAG_UNUSED_0x4D3                                           0x4D3 // Unused Flag
-#define FLAG_UNUSED_0x4D4                                           0x4D4 // Unused Flag
-#define FLAG_UNUSED_0x4D5                                           0x4D5 // Unused Flag
-#define FLAG_UNUSED_0x4D6                                           0x4D6 // Unused Flag
-#define FLAG_UNUSED_0x4D7                                           0x4D7 // Unused Flag
-#define FLAG_UNUSED_0x4D8                                           0x4D8 // Unused Flag
-#define FLAG_UNUSED_0x4D9                                           0x4D9 // Unused Flag
-#define FLAG_UNUSED_0x4DA                                           0x4DA // Unused Flag
-#define FLAG_UNUSED_0x4DB                                           0x4DB // Unused Flag
-#define FLAG_UNUSED_0x4DC                                           0x4DC // Unused Flag
-#define FLAG_UNUSED_0x4DD                                           0x4DD // Unused Flag
-#define FLAG_UNUSED_0x4DE                                           0x4DE // Unused Flag
-#define FLAG_UNUSED_0x4DF                                           0x4DF // Unused Flag
-#define FLAG_UNUSED_0x4E0                                           0x4E0 // Unused Flag
-#define FLAG_UNUSED_0x4E1                                           0x4E1 // Unused Flag
-#define FLAG_UNUSED_0x4E2                                           0x4E2 // Unused Flag
-#define FLAG_UNUSED_0x4E3                                           0x4E3 // Unused Flag
+// Pokemon_386 Events Here // Pokemon 386 Events Here // Pokemon 386 Events Here // Pokemon 386 Events Here // Pokemon 386 Events Here
+#define FLAG_TM_SHOP_FINAL                                          0x493 //
+#define FLAG_HELP_TRADE_RESEARCH                                    0x494 //
+#define FLAG_GOT_PORYGON                                            0x495 //
+#define FLAG_ITEM_DOME_FOSSIL                                       0x496 // KABUTO
+#define FLAG_ITEM_HELIX_FOSSIL                                      0x497 // OMANYTE
+#define FLAG_ITEM_OLD_AMBER                                         0x498 // AERODACTYLE
+#define FLAG_ITEM_OLD_SEA_MAP                                       0x499 // MEW
+#define FLAG_ITEM_EON_TICKET                                        0x49A // LATIAOS
+#define FLAG_ITEM_AURORA_TICKET                                     0x49B // DEOXYS
+#define FLAG_ITEM_ICE_BEAM                                          0x49C // in shoal cave ice room
+#define FLAG_ITEM_FLAMETHROWER                                      0x49D //
+#define FLAG_ITEM_THUNDERBOLT                                       0x49E // IS ACTUALLY A MAGNET
+#define FLAG_ITEM_PSYCHIC                                           0x49F //
+#define FLAG_ITEM_DOUBLE_TEAM                                       0x4A0 //
+#define FLAG_DEFEATED_ARTICUNO                                      0x4A1 // ARTICUNO
+#define FLAG_DEFEATED_MOLTRES                                       0x4A2 // MOLTRES
+#define FLAG_DEFEATED_ZAPDOS                                        0x4A3 // ZAPDOS
+#define FLAG_DEFEATED_MEWTWO                                        0x4A4 // MEWTWO
+#define FLAG_DEFEATED_LAPRAS                                        0x4A5 // LAPRAS
+#define FLAG_HIDE_ARTICUNO                                          0x4A6 //
+#define FLAG_HIDE_MOLTRES                                           0x4A7 //
+#define FLAG_HIDE_ZAPDOS                                            0x4A8 //
+#define FLAG_HIDE_MEWTWO                                            0x4A9 //
+#define FLAG_HIDE_LAPRAS                                            0x4AA //
+#define FLAG_CAUGHT_ARTICUNO                                        0x4AB //
+#define FLAG_CAUGHT_MOLTRES                                         0x4AC //
+#define FLAG_CAUGHT_ZAPDOS                                          0x4AD //
+#define FLAG_CAUGHT_MEWTWO                                          0x4AE //
+#define FLAG_CAUGHT_LAPRAS                                          0x4AF //
+#define FLAG_ITEM_MYSTIC_TICKET                                     0x4B0 // HO-OH and LUGIA
+#define FLAG_MET_OLGA                                               0x4B1 //
+#define FLAG_GOT_CUBE_JIRACHI                                       0x4B2 // JIRACHI
+#define FLAG_HIDDEN_SALAC_BERRY                                     0x4B3 //
+#define FLAG_HIDDEN_GANLON_BERRY                                    0x4B4 //
+#define FLAG_CHARMANDER_TRADE_DONE                                  0x4B5 // CHARMANDER
+#define FLAG_GOT_TOTODILE                                           0x4B6 // TOTODILE
+#define FLAG_GOT_CHIKORITA                                          0x4B7 // CHIKORITA
+#define FLAG_GOT_CYNDAQUIL                                          0x4B8 // CYNDAQUIL
+#define FLAG_RECEIVED_TOGEPI_EGG                                    0x4B9 // TOGEPI
+#define FLAG_GOT_DEEP_SEA_ITEM_SCALE                                0x4BA //
+#define FLAG_GOT_DEEP_SEA_ITEM_TOOTH                                0x4BB //
+#define FLAG_GOT_DEEP_SEA_ITEM                                      0x4BC //
+#define FLAG_ITEM_SPACE_CENTER_METAL_COAT                           0x4BD //
+#define FLAG_ITEM_SPACE_CENTER_GOT_MOON_STONE                       0x4BE //
+#define FLAG_ITEM_SPACE_CENTER_GOT_SUN_STONE                        0x4BF //
+#define FLAG_ITEM_GRANITE_CAVE_B3F_KINGS_ROCK1                      0x4C0 //
+#define FLAG_ITEM_GRANITE_CAVE_B3F_DRAGON_SCALE                     0x4C1 //
+#define FLAG_ITEM_ALTERING_CAVE_B3F_ESCAPE_ROPE                     0x4C2 //
+#define FLAG_ITEM_ALTERING_CAVE_B3F_ULTRA_BALL                      0x4C3 //
+#define CHOSE_RED_TENT                                              0x4C4 //
+#define CHOSE_BLUE_TENT                                             0x4C5 //
+#define GOT_BOTH_TENTS                                              0x4C6 //
+#define FLAG_ITEM_ALTERING_CAVE_B1F2_SEA_INCENSE                    0x4C7 //
+#define FLAG_ITEM_NEW_MAUVILLE_METAL_COAT                           0x4C8 //
+#define FLAG_ITEM_METEOR_FALLS_1F_1R_MOON_STONE2                    0x4C9 //
+#define FLAG_ITEM_METEOR_FALLS_B1F_1R_MOON_STONE                    0x4CA //
+#define FLAG_ITEM_METEOR_FALLS_STEVENS_CAVE_MOON_STONE              0x4CB //
+#define FLAG_ITEM_JAGGED_PASS2_SUN_STONE                            0x4CC //
+#define FLAG_ITEM_JAGGED_PASS2_FIRE_STONE                           0x4CD //
+#define FLAG_ITEM_FIERY_PATH2_FIRE_STONE                            0x4CE //
+#define FLAG_ITEM_ROUTE_124_HIDDEN_BLUE_SHARD                       0x4CF //
+#define FLAG_ITEM_ROUTE_124_HIDDEN_RED_SHARD                        0x4D0 //
+#define FLAG_ITEM_ROUTE_124_HIDDEN_YELLOW_SHARD                     0x4D2 //
+#define FLAG_ITEM_ROUTE_127_HIDDEN_GREEN_SHARD                      0x4D3 //
+#define FLAG_ITEM_SHOAL_CAVE_INNER_ROOM_KINGS_ROCK                  0x4D4 //
+#define FLAG_ITEM_ALTERING_CAVE_LUCKY_EGG                           0x4D5 //
+#define FLAG_ITEM_ALTERING_CAVE_B1F_KINGS_ROCK                      0x4D6 //
+#define FLAG_ITEM_ALTERING_CAVE_B2F_RARE_CANDY                      0x4D7 //
+#define FLAG_ITEM_ALTERING_CAVE_B2F_CARBOS                          0x4D8 //
+#define FLAG_ITEM_ALTERING_CAVE_B2F_PP_MAX                          0x4D9 //
+#define FLAG_ITEM_ALTERING_CAVE_B2F_NUGGET                          0x4DA //
+#define FLAG_ITEM_ALTERING_CAVE_B2F_METAL_POWDER                    0x4DB //
+#define FLAG_ITEM_ALTERING_CAVE_B2F_LUXURY_BALL                     0x4DC //
+#define FLAG_ITEM_MT_PYRE_TWISTED_SPOON                             0x4DD //
+#define FLAG_CAUGHT_SUDOWOODO                                       0x4DE //
+#define FLAG_HIDE_SUDOWOODO                                         0x4DF //
+#define FLAG_READY_DEX_HELP                                         0x4E0 //
+#define FLAG_GOT_DEX_HELP                                           0x4E1 //
+#define FLAG_HIDDEN_APICOT_BERRY                                    0x4E2 //
+#define FLAG_HIDDEN_WATER_STONE_SLATEPORT                           0x4E3 // Unused Flag
 #define FLAG_UNUSED_0x4E4                                           0x4E4 // Unused Flag
 #define FLAG_UNUSED_0x4E5                                           0x4E5 // Unused Flag
 #define FLAG_UNUSED_0x4E6                                           0x4E6 // Unused Flag
